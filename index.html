@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            body
+            {
+                margin: 0;
+            }
+            .frame
+            {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+            }
+            .soon
+            {
+                font-variant: small-caps;
+                pointer-events: none;
+                padding: 25px;
+                position: absolute;
+                font-size: 2vw;
+                color: white;
+                z-index: 1;
+                background-color: black;
+                border-radius: 5px;
+                margin: 0 auto;
+            }
+            .vid
+            {
+                width: 100vw;
+                height: 100hv;
+                z-index: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="frame">
+            <div class="soon">Coming soon</div>
+            <video class="vid" autoplay muted>
+              <source src="Lester'sDance.mp4" type="video/mp4">
+            </video>
+        </div>
+    </body>
+</html>
