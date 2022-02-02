@@ -3,46 +3,449 @@
     <head>
         <meta charset="utf-8">
         <title></title>
-        <style media="screen">
+        <style>
             body
             {
-                margin: 0;
-            }
-            .frame
-            {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-                height: 100%;
-                width: 100%;
-            }
-            .soon
-            {
-                font-variant: small-caps;
-                pointer-events: none;
-                padding: 25px;
-                position: absolute;
-                font-size: 2vw;
-                color: white;
-                z-index: 1;
-                background-color: black;
-                border-radius: 5px;
-                margin: 0 auto;
-            }
-            .vid
-            {
                 width: 100vw;
-                height: 100hv;
-                z-index: 0;
+                height: 51vw;
+                overflow: hidden;
+                background-color: black;
+                background-image: url("img/board.jpg");
+                background-size: 100vw 52vw;
+                background-position: center;
+                background-repeat: no-repeat;
+                user-select: none;
+                white-space: nowrap;
+                pointer-events: none;
+            }
+            div
+            {
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            .hidden
+            {
+                display: none;
+            }
+
+            /*
+                APPROACH
+            */
+            .approach
+            {
+                position: absolute;
+                left: 40vw;
+                top: 8vw;
+                width: 21vw;
+                height: 7vw;
+                pointer-events: none;
+            }
+            .approach .label
+            {
+                position: absolute;
+                margin-top: -0.2vw;
+                width: inherit;
+                height: 2vw;
+                background-image: url("img/label_select_approach.png");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                pointer-events: none;
+            }
+            .approach .pics
+            {
+                width: 14vw;
+                height: inherit;
+                display: inline-block;
+                overflow: hidden;
+                margin-top: 1.5vw;
+            }
+            .approach .pics > div
+            {
+                background-size: contain;
+                width: 14vw;
+                height: inherit;
+                display: inline-block;
+                cursor: pointer;
+                pointer-events: all;
+            }
+            .approach .pics .stealth
+            {
+                background-image: url("img/approach_stealth.png");
+            }
+            .approach .pics .bigcon
+            {
+                background-image: url("img/approach_bigcon.png");
+            }
+            .approach .pics .aggressive
+            {
+                background-image: url("img/approach_aggressive.png");
+            }
+            .approach .left,
+            .target .left,
+            .crew .gunman .left
+            {
+                background-image: url("img/button_left_arrow.png");
+            }
+            .approach .left:hover,
+            .target .left:hover,
+            .crew .gunman .left:hover
+            {
+                background-image: url("img/button_left_arrow_hover.png");
+            }
+            .approach .right,
+            .target .right,
+            .crew .gunman .right
+            {
+                background-image: url("img/button_left_arrow.png");
+                -webkit-transform: scaleX(-1);
+                transform: scaleX(-1);
+            }
+            .approach .right:hover,
+            .target .right:hover,
+            .crew .gunman .right:hover
+            {
+                background-image: url("img/button_left_arrow_hover.png");
+            }
+            .approach .left,
+            .approach .right
+            {
+                width: 2.5vw;
+                margin-top: 2.5vw;
+                height: 4vw;
+                display: inline-block;
+                vertical-align: top;
+                cursor: pointer;
+                pointer-events: all;
+                background-size: contain;
+            }
+
+            /*
+                TARGET
+            */
+            .target
+            {
+                background-image: url("img/target_frame.png");
+                position: absolute;
+                left: 61.5vw;
+                top: 8vw;
+                width: 16vw;
+                height: 11vw;
+                pointer-events: none;
+                background-size: contain;
+            }
+            .target .pics
+            {
+                width: 10vw;
+                height: 8vw;
+                display: inline-block;
+                overflow: hidden;
+                margin-top: 2.8vw;
+                margin-left: 0.8vw;
+            }
+            .target .pics > div
+            {
+                background-size: contain;
+                width: 10vw;
+                height: inherit;
+                display: inline-block;
+                cursor: pointer;
+            }
+            .target .left,
+            .target .right
+            {
+                width: 2vw;
+                height: 4vw;
+                display: inline-block;
+                vertical-align: top;
+                cursor: pointer;
+                pointer-events: all;
+                background-size: contain;
+                margin-top: 4vw;
+            }
+            .target .right
+            {
+                margin-left: 0.5vw;
+            }
+            .cash
+            {
+                background-image: url("img/target_cash.png");
+            }
+
+            /*
+                SUPPORT CREW
+            */
+            .crew
+            {
+                border: 1px solid red;
+                position: absolute;
+                top: 15vw;
+                left: 21vw;
+                width: 33vw;
+                height: 22vw;
+            }
+            .crew > .label
+            {
+                background-image: url("img/label_support_crew.png");
+                background-size: contain;
+                width: inherit;
+                height: 3vw;
+                margin-top: -0.5vw;
+            }
+            .crew .gunman,
+            .crew .driver,
+            .crew .hacker
+            {
+                border: 1px solid pink;
+                box-sizing: border-box;
+                display: inline-block;
+                width: 11vw;
+                height: 19vw;
+                margin-top: -1vw;
+                padding: 0px;
+                vertical-align: top;
+            }
+            .crew > div > .left,
+            .crew > div > .right
+            {
+                width: 2vw;
+                height: 4vw;
+                display: inline-block;
+                vertical-align: top;
+                cursor: pointer;
+                pointer-events: all;
+                background-size: contain;
+                margin-top: 4vw;
+                position: absolute;
+            }
+            .crew > div > .right
+            {
+                position: absolute;
+                top: 1.6vw;
+                left: 8.7vw;
+            }
+            .crew > div > div >.pics
+            {
+                height: 12vw;
+                width: 11vw;
+                margin: 0vw -0.2vw 0vw -0.2vw;
+                display: inline-block;
+                background-size: contain;
+            }
+            .crew .gunman.karl > div > .pics { background-image: url("img/gunman_karl.png"); }
+            .crew .gunman.charlie > div > .pics { background-image: url("img/gunman_charlie.png"); }
+            .crew .gunman.patrick > div > .pics { background-image: url("img/gunman_patrick.png"); }
+            .crew .gunman.gustavo > div > .pics { background-image: url("img/gunman_gustavo.png"); }
+            .crew .gunman.chester > div > .pics { background-image: url("img/gunman_chester.png"); }
+            .crew > div > .label
+            {
+                width: inherit;
+                height: 3vw;
+                background-image: url("img/label_unmarked_weapons.png");
+                background-size: contain;
+            }
+            .crew > div > div > .weapon > div
+            {
+                width: inherit;
+                height: 10vw;
+                background-size: contain;
+            }
+            /*
+            GUNMAN WEAPONS
+            */
+            .crew .gunman.karl .aggressive .weapon .first
+            {
+                background-image: url("img/gunman_karl_aggressive_shotgun.png");
+            }
+            .crew .gunman.karl .aggressive .weapon .second
+            {
+                background-image: url("img/gunman_karl_aggressive_revolver.png");
+            }
+            .crew .gunman.karl .bigcon .weapon .first
+            {
+                background-image: url("img/gunman_karl_bigcon_smg.png");
+            }
+            .crew .gunman.karl .bigcon .weapon .second
+            {
+                background-image: url("img/gunman_karl_bigcon_shotgun.png");
+            }
+            .crew .gunman.karl .stealth .weapon .first
+            {
+                background-image: url("img/gunman_karl_stealth_smg.png");
+            }
+            .crew .gunman.karl .stealth .weapon .second
+            {
+                background-image: url("img/gunman_karl_stealth_pistol.png");
+            }
+
+            /*
+                GENERAL PREP WORK
+            */
+            .general
+            {
+                width: 46vw;
+                height: 12vw;
+                position: absolute;
+                top: 36.5vw;
+                left: 21vw;
+                background-image: url("img/general_prepwork.png");
+                background-size: contain;
+            }
+            .general .keycards,
+            .general .routes,
+            .general .shipments,
+            .general .intel,
+            .general .drills
+            {
+                display: inline-block;
+                width: 7.5vw;
+                height: 5.6vw;
+                margin-top: 3.2vw;
+                margin-left: 1.25vw;
+                cursor: pointer;
+            }
+
+            .general > div .tick
+            {
+                position: absolute;
+                width: 1vw;
+                height: 1vw;
+                background-size: 150% 150%;
+                background-image: url("img/tick_blue.png");
+                background-position: 27% 65%;
+            }
+
+            .general .keycards .tick
+            {
+                background-image: url("img/tick_black.png");
+                top: 9.05vw;
+                left: 1.35vw;
+            }
+            .general .routes .tick
+            {
+                top: 8.95vw;
+                left: 10.6vw;
+            }
+            .general .shipments .tick
+            {
+                top: 9.05vw;
+                left: 20.55vw;
+            }
+            .general .intel .tick
+            {
+                top: 8.85vw;
+                left: 28.7vw;
+            }
+            .general .drills .tick
+            {
+                top: 9vw;
+                left: 37.75vw;
+            }
+
+            /*
+            APPROACH SPECIFIC
+            */
+            .specifics
+            {
+                position: absolute;
+                top: 20vw;
+                left: 62vw;
+                width: 17vw;
+                height: 28vw;
+            }
+            .specifics .label
+            {
+                width: inherit;
+                height: 3vw;
+                background-image: url("img/label_approach_specifics.png");
+                background-size: contain;
+            }
+            .specifics .mandatory
+            {
+                width: inherit;
+                height: 8vw;
+                border: 1px solid yellow;
+            }
+            .specifics .optional
+            {
+                width: inherit;
+                height: 16vw;
+                border: 1px solid blue;
             }
         </style>
     </head>
     <body>
-        <div class="frame">
-            <div class="soon">Coming soon</div>
-            <video class="vid" autoplay muted>
-              <source src="Lester'sDance.mp4" type="video/mp4">
-            </video>
+        <div class="approach">
+            <div class="label"></div>
+            <div class="left"></div>
+                <div class="pics">
+                    <div class="stealth"></div>
+                    <div class="bigcon"></div>
+                    <div class="aggressive"></div>
+                </div>
+            <div class="right"></div>
+        </div>
+        <div class="target">
+            <div class="left"></div>
+            <div class="pics">
+                <div class="cash"></div>
+                <div class="art"></div>
+                <div class="gold"></div>
+                <div class="diamonds"></div>
+            </div>
+            <div class="right"></div>
+        </div>
+        <div class="crew">
+            <div class="label"></div>
+            <div class="gunman karl">
+                <div class="left"></div>
+                <div class="aggressive">
+                    <div class="pics"></div>
+                    <div class="label"></div>
+                    <div class="weapon">
+                        <div class="first"></div>
+                        <div class="second hidden"></div>
+                    </div>
+                </div>
+                <div class="right"></div>
+            </div>
+            <div class="driver"></div>
+            <div class="hacker"></div>
+        </div>
+        <div class="general">
+            <div class="keycards">
+                <div class="tick hidden"></div>
+            </div>
+            <div class="routes">
+                <div class="tick hidden"></div>
+            </div>
+            <div class="shipments">
+                <div class="tick hidden"></div>
+            </div>
+            <div class="intel">
+                <div class="tick hidden"></div>
+            </div>
+            <div class="drills">
+                <div class="tick hidden"></div>
+            </div>
+        </div>
+        <div class="specifics">
+            <div class="label"></div>
+            <div class="stealth">
+                <div class="mandatory"></div>
+                <div class="optional"></div>
+            </div>
+            <div class="bigcon hidden">
+                <div class="mandatory"></div>
+                <div class="optional"></div>
+            </div>
+            <div class="aggressive hidden">
+                <div class="mandatory"></div>
+                <div class="optional"></div>
+            </div>
         </div>
     </body>
+    <script type="text/javascript">
+
+    </script>
 </html>
