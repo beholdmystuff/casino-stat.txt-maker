@@ -29,14 +29,61 @@
             }
 
             /*
+                EXTRAS
+            */
+            .extras
+            {
+                position: absolute;
+                width: 20.5vw;
+                height: 7.9vw;
+                top: 7.5vw;
+                left: 21.5vw;
+            }
+            .extras > div
+            {
+                width: 9vw;
+                height: inherit;
+                background-size: contain;
+                display: inline-block;
+                pointer-events: all;
+                cursor: url("img/cursor.png") 10 2,pointer;
+                margin-left: 1vw;
+            }
+            .extras .decoy
+            {
+                background-image: url("img/extras_decoy.png");
+            }
+            .extras .vehicle
+            {
+                background-image: url("img/extras_vehicle.png");
+            }
+            .extras .decoy .tick,
+            .extras .vehicle .tick
+            {
+                width: 1vw;
+                height: 1vw;
+                top: 5.9vw;
+                left: 7vw;
+                position: relative;
+                background-size: 150% 150%;
+                background-image: url("img/tick_blue.png");
+                background-position: 27% 65%;
+                pointer-events: none;
+            }
+            .extras .vehicle .tick
+            {
+                top: 5.7vw;
+            }
+
+            /*
                 APPROACH
             */
             .approach
             {
                 position: absolute;
-                left: 40vw;
+                left: 42vw;
                 top: 8vw;
-                width: 21vw;
+                width: 18vw;
                 height: 7vw;
                 pointer-events: none;
             }
@@ -59,43 +106,42 @@
                 display: inline-block;
                 overflow: hidden;
                 margin-top: 1.5vw;
-            }
-            .approach .pics > div
-            {
                 background-size: contain;
-                width: 14vw;
-                height: inherit;
-                display: inline-block;
-                cursor: pointer;
                 pointer-events: all;
+                cursor: url("img/cursor.png") 10 2,pointer;
+                margin-left: -0.5vw;
+                margin-right: -1vw;
             }
-            .approach .pics .stealth
+            .casino.stealth .approach .pics
             {
                 background-image: url("img/approach_stealth.png");
             }
-            .approach .pics .bigcon
+            .casino.bigcon .approach .pics
             {
                 background-image: url("img/approach_bigcon.png");
             }
-            .approach .pics .aggressive
+            .casino.aggressive .approach .pics
             {
                 background-image: url("img/approach_aggressive.png");
             }
             .approach .left,
             .target .left,
-            .crew .gunman .left
+            .crew > div > div > .left,
+            .security > .left
             {
                 background-image: url("img/button_left_arrow.png");
             }
             .approach .left:hover,
             .target .left:hover,
-            .crew .gunman .left:hover
+            .crew > div > div > .left:hover,
+            .security > .left:hover
             {
                 background-image: url("img/button_left_arrow_hover.png");
             }
             .approach .right,
             .target .right,
-            .crew .gunman .right
+            .crew > div > div > .right,
+            .security > .right
             {
                 background-image: url("img/button_left_arrow.png");
                 -webkit-transform: scaleX(-1);
@@ -103,7 +149,8 @@
             }
             .approach .right:hover,
             .target .right:hover,
-            .crew .gunman .right:hover
+            .crew > div > div > .right:hover,
+            .security > .right:hover
             {
                 background-image: url("img/button_left_arrow_hover.png");
             }
@@ -115,7 +162,7 @@
                 height: 4vw;
                 display: inline-block;
                 vertical-align: top;
-                cursor: pointer;
+                cursor: url("img/cursor.png") 10 2,pointer;
                 pointer-events: all;
                 background-size: contain;
             }
@@ -149,7 +196,7 @@
                 width: 10vw;
                 height: inherit;
                 display: inline-block;
-                cursor: pointer;
+                cursor: url("img/cursor.png") 10 2,pointer;
             }
             .target .left,
             .target .right
@@ -158,7 +205,7 @@
                 height: 4vw;
                 display: inline-block;
                 vertical-align: top;
-                cursor: pointer;
+                cursor: url("img/cursor.png") 10 2,pointer;
                 pointer-events: all;
                 background-size: contain;
                 margin-top: 4vw;
@@ -177,10 +224,9 @@
             */
             .crew
             {
-                border: 1px solid red;
                 position: absolute;
                 top: 15vw;
-                left: 21vw;
+                left: 22vw;
                 width: 33vw;
                 height: 22vw;
             }
@@ -196,7 +242,6 @@
             .crew .driver,
             .crew .hacker
             {
-                border: 1px solid pink;
                 box-sizing: border-box;
                 display: inline-block;
                 width: 11vw;
@@ -204,27 +249,52 @@
                 margin-top: -1vw;
                 padding: 0px;
                 vertical-align: top;
+                position: relative;
+                margin-right: 2vw;
             }
-            .crew > div > .left,
-            .crew > div > .right
+            .crew > div > div > .left,
+            .crew > div > div > .right,
+            .security > .left,
+            .security > .right
             {
                 width: 2vw;
                 height: 4vw;
                 display: inline-block;
                 vertical-align: top;
-                cursor: pointer;
+                cursor: url("img/cursor.png") 10 2,pointer;
                 pointer-events: all;
                 background-size: contain;
                 margin-top: 4vw;
                 position: absolute;
             }
-            .crew > div > .right
+            .crew > div > div > .right
             {
-                position: absolute;
-                top: 1.6vw;
-                left: 8.7vw;
+                margin-left: 9vw;
             }
-            .crew > div > div >.pics
+            .crew > div > div:nth-child(2) > .left,
+            .crew > div > div:nth-child(2) > .right,
+            .security > .left,
+            .security > .right
+            {
+                margin-top: 2vw;
+            }
+            .crew > div > div:nth-child(2) > .left
+            {
+                margin-left: -0.7vw;
+            }
+            .crew > div > div:nth-child(2) > .right
+            {
+                margin-left: 9.7vw;
+            }
+            .security > .right
+            {
+                margin-left: 7.5vw;
+            }
+            .security > .left
+            {
+                margin-left: -1.5vw;
+            }
+            .crew > div > .pics
             {
                 height: 12vw;
                 width: 11vw;
@@ -232,50 +302,93 @@
                 display: inline-block;
                 background-size: contain;
             }
-            .crew .gunman.karl > div > .pics { background-image: url("img/gunman_karl.png"); }
-            .crew .gunman.charlie > div > .pics { background-image: url("img/gunman_charlie.png"); }
-            .crew .gunman.patrick > div > .pics { background-image: url("img/gunman_patrick.png"); }
-            .crew .gunman.gustavo > div > .pics { background-image: url("img/gunman_gustavo.png"); }
-            .crew .gunman.chester > div > .pics { background-image: url("img/gunman_chester.png"); }
-            .crew > div > .label
-            {
-                width: inherit;
-                height: 3vw;
-                background-image: url("img/label_unmarked_weapons.png");
-                background-size: contain;
-            }
-            .crew > div > div > .weapon > div
+
+            .crew .gunman.karl > .pics { background-image: url("img/gunman_karl.png"); }
+            .crew .gunman.charlie > .pics { background-image: url("img/gunman_charlie.png"); }
+            .crew .gunman.patrick > .pics { background-image: url("img/gunman_patrick.png"); }
+            .crew .gunman.gustavo > .pics { background-image: url("img/gunman_gustavo.png"); }
+            .crew .gunman.chester > .pics { background-image: url("img/gunman_chester.png"); }
+
+            .crew .driver.karim > .pics { background-image: url("img/driver_karim.png"); }
+            .crew .driver.zach > .pics { background-image: url("img/driver_zach.png"); }
+            .crew .driver.taliana > .pics { background-image: url("img/driver_taliana.png"); }
+            .crew .driver.eddie > .pics { background-image: url("img/driver_eddie.png"); }
+            .crew .driver.chester > .pics { background-image: url("img/driver_chester.png"); }
+
+            .crew .hacker.rickie > .pics { background-image: url("img/hacker_rickie.png"); }
+            .crew .hacker.yohan > .pics { background-image: url("img/hacker_yohan.png"); }
+            .crew .hacker.christian > .pics { background-image: url("img/hacker_christian.png"); }
+            .crew .hacker.paige > .pics { background-image: url("img/hacker_paige.png"); }
+            .crew .hacker.avi > .pics { background-image: url("img/hacker_avi.png"); }
+
+            .crew > div > .weapon,
+            .crew > div > .vehicle,
+            .crew > div > .lester_the_molester
             {
                 width: inherit;
                 height: 10vw;
                 background-size: contain;
             }
+
             /*
-            GUNMAN WEAPONS
+                GUNMAN WEAPONS
             */
-            .crew .gunman.karl .aggressive .weapon .first
+            .casino.aggressive .crew .gunman.karl .weapon.first
             {
                 background-image: url("img/gunman_karl_aggressive_shotgun.png");
             }
-            .crew .gunman.karl .aggressive .weapon .second
+            .casino.aggressive .crew .gunman.karl .weapon.second
             {
                 background-image: url("img/gunman_karl_aggressive_revolver.png");
             }
-            .crew .gunman.karl .bigcon .weapon .first
+            .casino.bigcon .crew .gunman.karl .weapon.first
             {
                 background-image: url("img/gunman_karl_bigcon_smg.png");
             }
-            .crew .gunman.karl .bigcon .weapon .second
+            .casino.bigcon .crew .gunman.karl .weapon.second
             {
                 background-image: url("img/gunman_karl_bigcon_shotgun.png");
             }
-            .crew .gunman.karl .stealth .weapon .first
+            .casino.stealth .crew.gunman.karl .weapon.first
             {
                 background-image: url("img/gunman_karl_stealth_smg.png");
             }
-            .crew .gunman.karl .stealth .weapon .second
+            .casino.stealth .crew .gunman.karl .weapon.second
             {
                 background-image: url("img/gunman_karl_stealth_pistol.png");
+            }
+
+
+
+            /*
+                DRIVER VEHICLES
+            */
+            .casino.aggressive .crew .driver.karim .vehicle.first
+            {
+                background-image: url("img/driver_karim_issi.png");
+            }
+            .casino.aggressive .crew .driver.karim .vehicle.second
+            {
+                background-image: url("img/driver_karim_asbo.png");
+            }
+            .casino.aggressive .crew .driver.karim .vehicle.third
+            {
+                background-image: url("img/driver_karim_kanjo.png");
+            }
+            .casino.aggressive .crew .driver.karim .vehicle.fourth
+            {
+                background-image: url("img/driver_karim_sentinel.png");
+            }
+
+
+            /*
+                LESTER FACE
+            */
+            .crew .hacker .lester_the_molester
+            {
+                background-image: url("img/lester_the_molester.png");
+                pointer-events: all;
+                cursor: url("img/cursor.png") 10 2,pointer;
             }
 
             /*
@@ -302,7 +415,8 @@
                 height: 5.6vw;
                 margin-top: 3.2vw;
                 margin-left: 1.25vw;
-                cursor: pointer;
+                pointer-events: all;
+                cursor: url("img/cursor.png") 10 2,pointer;
             }
 
             .general > div .tick
@@ -349,7 +463,7 @@
             {
                 position: absolute;
                 top: 20vw;
-                left: 62vw;
+                left: 60vw;
                 width: 17vw;
                 height: 28vw;
             }
@@ -364,88 +478,232 @@
             {
                 width: inherit;
                 height: 8vw;
-                border: 1px solid yellow;
+            }
+            .specifics > div > .first,
+            .specifics > div > .second
+            {
+                width: 9vw;
+                height: inherit;
+                display: inline-block;
+                pointer-events: all;
+                cursor: url("img/cursor.png") 10 2,pointer;
+                background-size: contain;
+                margin-right: 0.5vw;
             }
             .specifics .optional
             {
                 width: inherit;
-                height: 16vw;
-                border: 1px solid blue;
+                height: 8vw;
             }
+
+            /* SPECIFICS - AGGRESSIVE */
+            .casino.aggressive .specifics .mandatory .first
+            {
+                background-image: url("img/specifics_aggressive_charges.png");
+            }
+            .casino.aggressive .specifics .mandatory .second
+            {
+                background-image: url("img/specifics_aggressive_explosives.png");
+            }
+            .casino.aggressive .specifics .optional .first
+            {
+                background-image: url("img/specifics_aggressive_armor.png");
+            }
+            .casino.aggressive .specifics .optional .second
+            {
+                background-image: url("img/specifics_aggressive_machine.png");
+            }
+
+            /* SPECIFICS - BIG CON */
+            .specifics.bigcon .mandatory .first.bugstars
+            {
+                background-image: url("img/bigcon_entrydisguise_bugstars.png");
+            }
+            .specifics.bigcon .mandatory .first.sechs
+            {
+                background-image: url("img/bigcon_entrydisguise_gruppesechs.png");
+            }
+            .specifics.bigcon .mandatory .first.maintenance
+            {
+                background-image: url("img/bigcon_entrydisguise_maintenance.png");
+            }
+            .specifics.bigcon .mandatory .second
+            {
+                background-image: url("img/specifics_bigcon_drills.png");
+            }
+            .specifics.bigcon .optional .first
+            {
+                background-image: url("img/bigcon_entrydisguise_yung.png");
+            }
+            .specifics.bigcon .optional .second.noose
+            {
+                background-image: url("img/bigcon_exitdisguise_noose.png");
+            }
+            .specifics.bigcon .optional .second.firefighter
+            {
+                background-image: url("img/bigcon_exitdisguise_firefighter.png");
+            }
+
+            /* SPECIFICS - STEALTH */
+            .specifics.stealth .mandatory .first
+            {
+                background-image: url("img/specifics_stealth_drone.png");
+            }
+            .specifics.stealth .mandatory .second
+            {
+                background-image: url("img/specifics_stealth_laser.png");
+            }
+            .specifics.stealth .optional .first
+            {
+                background-image: url("img/specifics_stealth_emp.png");
+            }
+            .specifics.stealth .optional .second
+            {
+                background-image: url("img/specifics_stealth_suits.png");
+            }
+
+            /*
+                SECURITY
+            */
+            .security
+            {
+                width: 8vw;
+                height: 8vw;
+                margin-left: 8vw;
+                pointer-events: all;
+                cursor: url("img/cursor.png") 10 2,pointer;
+                background-size: contain;
+                top: 38.4vw;
+                left: 62vw;
+                position: absolute;
+            }
+            .security.level1
+            {
+                background-image: url("img/security_level1.png");
+            }
+            .security.level2
+            {
+                background-image: url("img/security_level2.png");
+            }
+
         </style>
     </head>
     <body>
-        <div class="approach">
-            <div class="label"></div>
-            <div class="left"></div>
-                <div class="pics">
-                    <div class="stealth"></div>
-                    <div class="bigcon"></div>
-                    <div class="aggressive"></div>
-                </div>
-            <div class="right"></div>
-        </div>
-        <div class="target">
-            <div class="left"></div>
-            <div class="pics">
-                <div class="cash"></div>
-                <div class="art"></div>
-                <div class="gold"></div>
-                <div class="diamonds"></div>
+        <div class="casino aggressive">
+            <div class="extras">
+                <div class="decoy"><div class="tick hidden"></div></div>
+                <div class="vehicle"><div class="tick hidden"></div></div>
             </div>
-            <div class="right"></div>
-        </div>
-        <div class="crew">
-            <div class="label"></div>
-            <div class="gunman karl">
+            <div class="approach">
+                <div class="label"></div>
                 <div class="left"></div>
-                <div class="aggressive">
                     <div class="pics"></div>
-                    <div class="label"></div>
-                    <div class="weapon">
-                        <div class="first"></div>
-                        <div class="second hidden"></div>
-                    </div>
+                <div class="right"></div>
+            </div>
+            <div class="target">
+                <div class="left"></div>
+                <div class="pics">
+                    <div class="cash"></div>
+                    <div class="art"></div>
+                    <div class="gold"></div>
+                    <div class="diamonds"></div>
                 </div>
                 <div class="right"></div>
             </div>
-            <div class="driver"></div>
-            <div class="hacker"></div>
-        </div>
-        <div class="general">
-            <div class="keycards">
-                <div class="tick hidden"></div>
+            <div class="crew">
+                <div class="label"></div>
+                <div class="gunman karl ">
+                    <div class="pics">
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
+                    <div class="weapon first">
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+                <div class="driver karim">
+                    <div class="pics">
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
+                    <div class="vehicle first">
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+                <div class="hacker rickie">
+                    <div class="pics">
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
+                    <div class="lester_the_molester"></div>
+                </div>
             </div>
-            <div class="routes">
-                <div class="tick hidden"></div>
+            <div class="general">
+                <div class="keycards">
+                    <div class="tick hidden"></div>
+                </div>
+                <div class="routes">
+                    <div class="tick hidden"></div>
+                </div>
+                <div class="shipments">
+                    <div class="tick hidden"></div>
+                </div>
+                <div class="intel">
+                    <div class="tick hidden"></div>
+                </div>
+                <div class="drills">
+                    <div class="tick hidden"></div>
+                </div>
             </div>
-            <div class="shipments">
-                <div class="tick hidden"></div>
+            <div class="specifics">
+                <div class="label"></div>
+                <div class="mandatory">
+                    <div class="first"></div>
+                    <div class="second"></div>
+                </div>
+                <div class="optional">
+                    <div class="first"></div>
+                    <div class="second"></div>
+                </div>
             </div>
-            <div class="intel">
-                <div class="tick hidden"></div>
-            </div>
-            <div class="drills">
-                <div class="tick hidden"></div>
-            </div>
-        </div>
-        <div class="specifics">
-            <div class="label"></div>
-            <div class="stealth">
-                <div class="mandatory"></div>
-                <div class="optional"></div>
-            </div>
-            <div class="bigcon hidden">
-                <div class="mandatory"></div>
-                <div class="optional"></div>
-            </div>
-            <div class="aggressive hidden">
-                <div class="mandatory"></div>
-                <div class="optional"></div>
+            <div class="security level1">
+                <div class="left"></div>
+                <div class="right"></div>
             </div>
         </div>
     </body>
     <script type="text/javascript">
+    /*
+        SETUP
+    */
+    let settings =
+    {
 
+    };
+
+    //Extras setter. Decoy and clean vehicle.
+    document.querySelectorAll(".extras > div").forEach(function(element)
+    {
+        element.addEventListener("click", function(event)
+        {
+            let extra = event.target.classList[0];
+            if (settings[extra])
+            {
+                //uncheck
+                delete settings[extra];
+                event.target.querySelector(".tick").classList.add("hidden");
+            }
+            else
+            {
+                //check
+                settings[extra] = true;
+                event.target.querySelector(".tick").classList.remove("hidden");
+            }
+        });
+    });
+
+    
     </script>
 </html>
