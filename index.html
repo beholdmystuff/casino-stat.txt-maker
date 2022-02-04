@@ -27,6 +27,12 @@
             {
                 display: none;
             }
+            .tick
+            {
+                width: 1vw;
+                height: 1vw;
+                pointer-events: none;
+            }
 
             /*
                 EXTRAS
@@ -60,15 +66,12 @@
             .extras .decoy .tick,
             .extras .vehicle .tick
             {
-                width: 1vw;
-                height: 1vw;
                 top: 5.9vw;
                 left: 7vw;
                 position: relative;
                 background-size: 150% 150%;
                 background-image: url("img/tick_blue.png");
                 background-position: 27% 65%;
-                pointer-events: none;
             }
             .extras .vehicle .tick
             {
@@ -112,6 +115,17 @@
                 margin-left: -0.5vw;
                 margin-right: -1vw;
             }
+            .approach .pics .hard
+            {
+                position: absolute;
+                top: 4vw;
+                left: 5vw;
+                width: 2vw;
+                height: 2vw;
+                background-image: url("img/icon_hard.png");
+                background-size: contain;
+                pointer-events: none;
+            }
             .casino.stealth .approach .pics
             {
                 background-image: url("img/approach_stealth.png");
@@ -127,21 +141,27 @@
             .approach .left,
             .target .left,
             .crew > div > div > .left,
-            .security > .left
+            .security > .left,
+            .casino.bigcon .specifics .mandatory .first .left,
+            .casino.bigcon .specifics .optional .second .left
             {
                 background-image: url("img/button_left_arrow.png");
             }
             .approach .left:hover,
             .target .left:hover,
             .crew > div > div > .left:hover,
-            .security > .left:hover
+            .security > .left:hover,
+            .casino.bigcon .specifics .mandatory .first .left:hover,
+            .casino.bigcon .specifics .optional .second .left:hover
             {
                 background-image: url("img/button_left_arrow_hover.png");
             }
             .approach .right,
             .target .right,
             .crew > div > div > .right,
-            .security > .right
+            .security > .right,
+            .casino.bigcon .specifics .mandatory .first .right,
+            .casino.bigcon .specifics .optional .second .right
             {
                 background-image: url("img/button_left_arrow.png");
                 -webkit-transform: scaleX(-1);
@@ -150,7 +170,9 @@
             .approach .right:hover,
             .target .right:hover,
             .crew > div > div > .right:hover,
-            .security > .right:hover
+            .security > .right:hover,
+            .casino.bigcon .specifics .mandatory .first .right:hover,
+            .casino.bigcon .specifics .optional .second .right:hover
             {
                 background-image: url("img/button_left_arrow_hover.png");
             }
@@ -181,7 +203,7 @@
                 pointer-events: none;
                 background-size: contain;
             }
-            .target .pics
+            .target .pic
             {
                 width: 10vw;
                 height: 8vw;
@@ -189,13 +211,7 @@
                 overflow: hidden;
                 margin-top: 2.8vw;
                 margin-left: 0.8vw;
-            }
-            .target .pics > div
-            {
                 background-size: contain;
-                width: 10vw;
-                height: inherit;
-                display: inline-block;
                 cursor: url("img/cursor.png") 10 2,pointer;
             }
             .target .left,
@@ -214,9 +230,21 @@
             {
                 margin-left: 0.5vw;
             }
-            .cash
+            .target.cash .pic
             {
                 background-image: url("img/target_cash.png");
+            }
+            .target.gold .pic
+            {
+                background-image: url("img/target_gold.png");
+            }
+            .target.art .pic
+            {
+                background-image: url("img/target_art.png");
+            }
+            .target.diamonds .pic
+            {
+                background-image: url("img/target_diamonds.png");
             }
 
             /*
@@ -255,7 +283,11 @@
             .crew > div > div > .left,
             .crew > div > div > .right,
             .security > .left,
-            .security > .right
+            .security > .right,
+            .casino.bigcon .specifics .mandatory .first .left,
+            .casino.bigcon .specifics .optional .second .left,
+            .casino.bigcon .specifics .mandatory .first .right,
+            .casino.bigcon .specifics .optional .second .right
             {
                 width: 2vw;
                 height: 4vw;
@@ -274,7 +306,11 @@
             .crew > div > div:nth-child(2) > .left,
             .crew > div > div:nth-child(2) > .right,
             .security > .left,
-            .security > .right
+            .security > .right,
+            .casino.bigcon .specifics .mandatory .first .left,
+            .casino.bigcon .specifics .optional .second .left,
+            .casino.bigcon .specifics .mandatory .first .right,
+            .casino.bigcon .specifics .optional .second .right
             {
                 margin-top: 2vw;
             }
@@ -286,13 +322,20 @@
             {
                 margin-left: 9.7vw;
             }
-            .security > .right
-            {
-                margin-left: 7.5vw;
-            }
             .security > .left
             {
                 margin-left: -1.5vw;
+            }
+            .casino.bigcon .specifics .mandatory .first .left,
+            .casino.bigcon .specifics .optional .second .left
+            {
+                margin-left: -1.1vw;
+            }
+            .security > .right,
+            .casino.bigcon .specifics .mandatory .first .right,
+            .casino.bigcon .specifics .optional .second .right
+            {
+                margin-left: 7.5vw;
             }
             .crew > div > .pics
             {
@@ -333,62 +376,98 @@
             /*
                 GUNMAN WEAPONS
             */
-            .casino.aggressive .crew .gunman.karl .weapon.first
-            {
-                background-image: url("img/gunman_karl_aggressive_shotgun.png");
-            }
-            .casino.aggressive .crew .gunman.karl .weapon.second
-            {
-                background-image: url("img/gunman_karl_aggressive_revolver.png");
-            }
-            .casino.bigcon .crew .gunman.karl .weapon.first
-            {
-                background-image: url("img/gunman_karl_bigcon_smg.png");
-            }
-            .casino.bigcon .crew .gunman.karl .weapon.second
-            {
-                background-image: url("img/gunman_karl_bigcon_shotgun.png");
-            }
-            .casino.stealth .crew.gunman.karl .weapon.first
-            {
-                background-image: url("img/gunman_karl_stealth_smg.png");
-            }
-            .casino.stealth .crew .gunman.karl .weapon.second
-            {
-                background-image: url("img/gunman_karl_stealth_pistol.png");
-            }
+            /* single line to save some vertical eye space */
+            /* karl */
+            .casino.stealth .crew .gunman.karl .weapon.first { background-image: url("img/gunman_karl_stealth_smg.png"); }
+            .casino.stealth .crew .gunman.karl .weapon.second { background-image: url("img/gunman_karl_stealth_pistol.png"); }
+            .casino.bigcon .crew .gunman.karl .weapon.first { background-image: url("img/gunman_karl_bigcon_smg.png"); }
+            .casino.bigcon .crew .gunman.karl .weapon.second { background-image: url("img/gunman_karl_bigcon_shotgun.png"); }
+            .casino.aggressive .crew .gunman.karl .weapon.first { background-image: url("img/gunman_karl_aggressive_shotgun.png"); }
+            .casino.aggressive .crew .gunman.karl .weapon.second { background-image: url("img/gunman_karl_aggressive_revolver.png"); }
 
+            /* charlie */
+            .casino.stealth .crew.gunman.charlie .weapon.first { background-image: url("img/gunman_charlie_stealth_smg.png"); }
+            .casino.stealth .crew .gunman.charlie .weapon.second { background-image: url("img/gunman_charlie_stealth_shotgun.png"); }
+            .casino.bigcon .crew .gunman.charlie .weapon.first { background-image: url("img/gunman_charlie_bigcon_pistol.png"); }
+            .casino.bigcon .crew .gunman.charlie .weapon.second { background-image: url("img/gunman_charlie_bigcon_shotgun.png"); }
+            .casino.aggressive .crew .gunman.charlie .weapon.first { background-image: url("img/gunman_charlie_aggressive_smg.png"); }
+            .casino.aggressive .crew .gunman.charlie .weapon.second { background-image: url("img/gunman_charlie_aggressive_shotgun.png"); }
+
+            /* patrick */
+            .casino.stealth .crew.gunman.patrick .weapon.first { background-image: url("img/gunman_patrick_stealth_combatpdw.png"); }
+            .casino.stealth .crew .gunman.patrick .weapon.second { background-image: url("img/gunman_patrick_stealth_rifle.png"); }
+            .casino.bigcon .crew .gunman.patrick .weapon.first { background-image: url("img/gunman_patrick_bigcon_shotgun.png"); }
+            .casino.bigcon .crew .gunman.patrick .weapon.second { background-image: url("img/gunman_patrick_bigcon_rifle.png"); }
+            .casino.aggressive .crew .gunman.patrick .weapon.first { background-image: url("img/gunman_patrick_aggressive_shotgun.png"); }
+            .casino.aggressive .crew .gunman.patrick .weapon.second { background-image: url("img/gunman_patrick_aggressive_mg.png"); }
+
+            /* gustavo */
+            .casino.stealth .crew.gunman.gustavo .weapon.first { background-image: url("img/gunman_gustavo_stealth_rifle.png"); }
+            .casino.stealth .crew .gunman.gustavo .weapon.second { background-image: url("img/gunman_gustavo_stealth_shotgun.png"); }
+            .casino.bigcon .crew .gunman.gustavo .weapon.first { background-image: url("img/gunman_gustavo_bigcon_rifle.png"); }
+            .casino.bigcon .crew .gunman.gustavo .weapon.second { background-image: url("img/gunman_gustavo_bigcon_shotgun.png"); }
+            .casino.aggressive .crew .gunman.gustavo .weapon.first { background-image: url("img/gunman_gustavo_aggressive_rifle.png"); }
+            .casino.aggressive .crew .gunman.gustavo .weapon.second { background-image: url("img/gunman_gustavo_aggressive_shotgun.png"); }
+
+            /* chester */
+            .casino.stealth .crew.gunman.chester .weapon.first { background-image: url("img/gunman_chester_stealth_shotgun.png"); }
+            .casino.stealth .crew .gunman.chester .weapon.second { background-image: url("img/gunman_chester_stealth_rifle.png"); }
+            .casino.bigcon .crew .gunman.chester .weapon.first { background-image: url("img/gunman_chester_bigcon_smg.png"); }
+            .casino.bigcon .crew .gunman.chester .weapon.second { background-image: url("img/gunman_chester_bigcon_rifle.png"); }
+            .casino.aggressive .crew .gunman.chester .weapon.first { background-image: url("img/gunman_chester_aggressive_shotgun.png"); }
+            .casino.aggressive .crew .gunman.chester .weapon.second { background-image: url("img/gunman_chester_aggressive_rifle.png"); }
 
 
             /*
                 DRIVER VEHICLES
             */
-            .casino.aggressive .crew .driver.karim .vehicle.first
-            {
-                background-image: url("img/driver_karim_issi.png");
-            }
-            .casino.aggressive .crew .driver.karim .vehicle.second
-            {
-                background-image: url("img/driver_karim_asbo.png");
-            }
-            .casino.aggressive .crew .driver.karim .vehicle.third
-            {
-                background-image: url("img/driver_karim_kanjo.png");
-            }
-            .casino.aggressive .crew .driver.karim .vehicle.fourth
-            {
-                background-image: url("img/driver_karim_sentinel.png");
-            }
+            /* karim */
+            .casino .crew .driver.karim .vehicle.first { background-image: url("img/driver_karim_issi.png"); }
+            .casino .crew .driver.karim .vehicle.second { background-image: url("img/driver_karim_asbo.png"); }
+            .casino .crew .driver.karim .vehicle.third { background-image: url("img/driver_karim_kanjo.png"); }
+            .casino .crew .driver.karim .vehicle.fourth { background-image: url("img/driver_karim_sentinel.png"); }
 
+            /* zach */
+            .casino .crew .driver.zach .vehicle.first { background-image: url("img/driver_zach_manchez.png"); }
+            .casino .crew .driver.zach .vehicle.second { background-image: url("img/driver_zach_stryder.png"); }
+            .casino .crew .driver.zach .vehicle.third { background-image: url("img/driver_zach_defiler.png"); }
+            .casino .crew .driver.zach .vehicle.fourth { background-image: url("img/driver_zach_lectro.png"); }
+
+            /* taliana */
+            .casino .crew .driver.taliana .vehicle.first { background-image: url("img/driver_taliana_retinue.png"); }
+            .casino .crew .driver.taliana .vehicle.second { background-image: url("img/driver_taliana_yosemite.png"); }
+            .casino .crew .driver.taliana .vehicle.third { background-image: url("img/driver_taliana_sugoi.png"); }
+            .casino .crew .driver.taliana .vehicle.fourth { background-image: url("img/driver_taliana_jugular.png"); }
+
+            /* eddie */
+            .casino .crew .driver.eddie .vehicle.first { background-image: url("img/driver_eddie_sultan.png"); }
+            .casino .crew .driver.eddie .vehicle.second { background-image: url("img/driver_eddie_gauntlet.png"); }
+            .casino .crew .driver.eddie .vehicle.third { background-image: url("img/driver_eddie_ellie.png"); }
+            .casino .crew .driver.eddie .vehicle.fourth { background-image: url("img/driver_eddie_komoda.png"); }
+
+            /* chester */
+            .casino .crew .driver.chester .vehicle.first { background-image: url("img/driver_chester_zhaba.png"); }
+            .casino .crew .driver.chester .vehicle.second { background-image: url("img/driver_chester_vagrant.png"); }
+            .casino .crew .driver.chester .vehicle.third { background-image: url("img/driver_chester_outlaw.png"); }
+            .casino .crew .driver.chester .vehicle.fourth { background-image: url("img/driver_chester_everon.png"); }
 
             /*
-                LESTER FACE
+                LESTER PIRATE FLAG
             */
             .crew .hacker .lester_the_molester
             {
                 background-image: url("img/lester_the_molester.png");
                 pointer-events: all;
                 cursor: url("img/cursor.png") 10 2,pointer;
+            }
+            .lester_the_molester .tick
+            {
+                position: relative;
+                top: 7.5vw;
+                left: 5vw;
+                background-size: 150% 150%;
+                background-image: url("img/tick_black.png");
+                background-position: 27% 65%;
             }
 
             /*
@@ -422,8 +501,6 @@
             .general > div .tick
             {
                 position: absolute;
-                width: 1vw;
-                height: 1vw;
                 background-size: 150% 150%;
                 background-image: url("img/tick_blue.png");
                 background-position: 27% 65%;
@@ -462,7 +539,7 @@
             .specifics
             {
                 position: absolute;
-                top: 20vw;
+                top: 18.5vw;
                 left: 60vw;
                 width: 17vw;
                 height: 28vw;
@@ -490,6 +567,9 @@
                 background-size: contain;
                 margin-right: 0.5vw;
             }
+            .casino:not(.bigcon) .specifics .mandatory .first .left {display: none}
+            .casino:not(.bigcon) .specifics .mandatory .first .right {display: none}
+
             .specifics .optional
             {
                 width: inherit;
@@ -497,71 +577,134 @@
             }
 
             /* SPECIFICS - AGGRESSIVE */
-            .casino.aggressive .specifics .mandatory .first
+            .casino.aggressive .specifics .mandatory .first{ background-image: url("img/specifics_aggressive_charges.png"); }
+            .casino.aggressive .specifics .mandatory .second { background-image: url("img/specifics_aggressive_explosives.png"); }
+            .casino.aggressive .specifics .optional .first { background-image: url("img/specifics_aggressive_armor.png"); }
+            .casino.aggressive .specifics .optional .second { background-image: url("img/specifics_aggressive_machine.png"); }
+
+            .casino .specifics > div > div > .tick
             {
-                background-image: url("img/specifics_aggressive_charges.png");
+                background-size: 150% 150%;
+                background-position: 27% 65%;
             }
-            .casino.aggressive .specifics .mandatory .second
+            .casino .specifics .mandatory > div > .tick
             {
-                background-image: url("img/specifics_aggressive_explosives.png");
+                background-image: url("img/tick_black.png");
             }
-            .casino.aggressive .specifics .optional .first
+            .casino .specifics .optional > div > .tick
             {
-                background-image: url("img/specifics_aggressive_armor.png");
+                background-image: url("img/tick_blue.png");
             }
-            .casino.aggressive .specifics .optional .second
+            .casino.aggressive .specifics .mandatory .first .tick
             {
-                background-image: url("img/specifics_aggressive_machine.png");
+                position: absolute;
+                top: 9.3vw;
+                left: 0.4vw;
+            }
+            .casino.aggressive .specifics .mandatory .second .tick
+            {
+                position: absolute;
+                top: 9.3vw;
+                left: 10.2vw;
+            }
+            .casino.aggressive .specifics .optional .first .tick
+            {
+                position: absolute;
+                top: 17.4vw;
+                left: 0.6vw;
+            }
+            .casino.aggressive .specifics .optional .second .tick
+            {
+                position: absolute;
+                top: 17.4vw;
+                left: 10.8vw;
             }
 
             /* SPECIFICS - BIG CON */
-            .specifics.bigcon .mandatory .first.bugstars
+            .casino.bigcon .specifics .mandatory .first.bugstars { background-image: url("img/bigcon_entrydisguise_bugstars.png"); }
+            .casino.bigcon .specifics .mandatory .first.sechs { background-image: url("img/bigcon_entrydisguise_sechs.png"); }
+            .casino.bigcon .specifics .mandatory .first.maintenance { background-image: url("img/bigcon_entrydisguise_maintenance.png"); }
+            .casino.bigcon .specifics .mandatory .second { background-image: url("img/specifics_bigcon_drills.png"); }
+            .casino.bigcon .specifics .optional .first { background-image: url("img/bigcon_entrydisguise_yung.png"); }
+            .casino.bigcon .specifics .optional .second.noose { background-image: url("img/bigcon_exitdisguise_noose.png"); }
+            .casino.bigcon .specifics .optional .second.firefighter { background-image: url("img/bigcon_exitdisguise_firefighter.png"); }
+
+            /* ENTRY DISGUISE  */
+            .casino.bigcon .specifics .mandatory .first.bugstars .tick
             {
-                background-image: url("img/bigcon_entrydisguise_bugstars.png");
+                position: absolute;
+                top: 9.5vw;
+                left: 0.9vw;
             }
-            .specifics.bigcon .mandatory .first.sechs
+            .casino.bigcon .specifics .mandatory .first.sechs .tick,
+            .casino.bigcon .specifics .mandatory .first.maintenance .tick
             {
-                background-image: url("img/bigcon_entrydisguise_gruppesechs.png");
+                position: absolute;
+                top: 9.4vw;
+                left: 0.6vw;
             }
-            .specifics.bigcon .mandatory .first.maintenance
+
+            .casino.bigcon .specifics .mandatory .second .tick
             {
-                background-image: url("img/bigcon_entrydisguise_maintenance.png");
+                position: absolute;
+                top: 9.3vw;
+                left: 11.1vw;
             }
-            .specifics.bigcon .mandatory .second
+
+            /* YUNG DISGUISE */
+            .casino.bigcon .specifics .optional .first .tick
             {
-                background-image: url("img/specifics_bigcon_drills.png");
+                position: absolute;
+                top: 17.4vw;
+                left: 3.7vw;
             }
-            .specifics.bigcon .optional .first
+
+
+            /* EXIT DISGUISE  */
+            .casino.bigcon .specifics .optional .second.noose .tick
             {
-                background-image: url("img/bigcon_entrydisguise_yung.png");
+                position: absolute;
+                top: 17.6vw;
+                left: 11.6vw;
             }
-            .specifics.bigcon .optional .second.noose
+            .casino.bigcon .specifics .optional .second.firefighter .tick
             {
-                background-image: url("img/bigcon_exitdisguise_noose.png");
+                position: absolute;
+                top: 17.6vw;
+                left: 10.5vw;
             }
-            .specifics.bigcon .optional .second.firefighter
-            {
-                background-image: url("img/bigcon_exitdisguise_firefighter.png");
-            }
+
 
             /* SPECIFICS - STEALTH */
-            .specifics.stealth .mandatory .first
-            {
-                background-image: url("img/specifics_stealth_drone.png");
-            }
-            .specifics.stealth .mandatory .second
-            {
-                background-image: url("img/specifics_stealth_laser.png");
-            }
-            .specifics.stealth .optional .first
-            {
-                background-image: url("img/specifics_stealth_emp.png");
-            }
-            .specifics.stealth .optional .second
-            {
-                background-image: url("img/specifics_stealth_suits.png");
-            }
+            .casino.stealth .specifics .mandatory .first {  background-image: url("img/specifics_stealth_drone.png"); }
+            .casino.stealth .specifics .mandatory .second { background-image: url("img/specifics_stealth_laser.png"); }
+            .casino.stealth .specifics .optional .first { background-image: url("img/specifics_stealth_emp.png"); }
+            .casino.stealth .specifics .optional .second { background-image: url("img/specifics_stealth_suits.png"); }
 
+            .casino.stealth .specifics .mandatory .first .tick
+            {
+                position: absolute;
+                top: 9.3vw;
+                left: 1.7vw;
+            }
+            .casino.stealth .specifics .mandatory .second .tick
+            {
+                position: absolute;
+                top: 9.3vw;
+                left: 11.2vw;
+            }
+            .casino.stealth .specifics .optional .first .tick
+            {
+                position: absolute;
+                top: 17.4vw;
+                left: 1.8vw;
+            }
+            .casino.stealth .specifics .optional .second .tick
+            {
+                position: absolute;
+                top: 17.3vw;
+                left: 10.2vw;
+            }
             /*
                 SECURITY
             */
@@ -571,11 +714,21 @@
                 height: 8vw;
                 margin-left: 8vw;
                 pointer-events: all;
-                cursor: url("img/cursor.png") 10 2,pointer;
                 background-size: contain;
                 top: 38.4vw;
                 left: 62vw;
                 position: absolute;
+            }
+            .security::before
+            {
+                top: -1vw;
+                position: absolute;
+                width: inherit;
+                height: 2.3vw;
+                background-image: url("img/label_security_pass.png");
+                background-position: 50% 50%;
+                background-size: 120%;
+                content: " ";
             }
             .security.level1
             {
@@ -589,7 +742,7 @@
         </style>
     </head>
     <body>
-        <div class="casino aggressive">
+        <div class="casino stealth">
             <div class="extras">
                 <div class="decoy"><div class="tick hidden"></div></div>
                 <div class="vehicle"><div class="tick hidden"></div></div>
@@ -597,17 +750,12 @@
             <div class="approach">
                 <div class="label"></div>
                 <div class="left"></div>
-                    <div class="pics"></div>
+                <div class="pics"><div class="hard"></div></div>
                 <div class="right"></div>
             </div>
-            <div class="target">
+            <div class="target cash">
                 <div class="left"></div>
-                <div class="pics">
-                    <div class="cash"></div>
-                    <div class="art"></div>
-                    <div class="gold"></div>
-                    <div class="diamonds"></div>
-                </div>
+                <div class="pic"></div>
                 <div class="right"></div>
             </div>
             <div class="crew">
@@ -637,7 +785,7 @@
                         <div class="left"></div>
                         <div class="right"></div>
                     </div>
-                    <div class="lester_the_molester"></div>
+                    <div class="lester_the_molester"><div class="tick hidden"></div></div>
                 </div>
             </div>
             <div class="general">
@@ -660,12 +808,23 @@
             <div class="specifics">
                 <div class="label"></div>
                 <div class="mandatory">
-                    <div class="first"></div>
-                    <div class="second"></div>
+                    <div class="first">
+                        <div class="tick hidden"></div>
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
+                    <div class="second"><div class="tick hidden"></div></div>
                 </div>
                 <div class="optional">
-                    <div class="first"></div>
-                    <div class="second"></div>
+                    <div class="first">
+                        <div class="tick hidden"></div>
+                        <div class="tick hidden"></div>
+                    </div>
+                    <div class="second">
+                        <div class="tick hidden"></div>
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
                 </div>
             </div>
             <div class="security level1">
@@ -678,15 +837,37 @@
     /*
         SETUP
     */
-    let settings =
+    let casino =
     {
-
+        target: ["cash", "gold", "art", "diamonds"],
+        approach: ["stealth", "bigcon", "aggressive"],
+        gunman: ["karl", "charlie", "patrick", "gustavo", "chester"],
+        driver: ["karim", "zach", "taliana", "eddie", "chester"],
+        hacker: ["rickie", "yohan", "christian", "paige", "avi"],
+        vehicles: ["first", "second", "third", "fourth"], //I know, right?
+        disguise: ["bugstars", "sechs", "maintenance"]
     };
 
-    //Extras setter. Decoy and clean vehicle.
-    document.querySelectorAll(".extras > div").forEach(function(element)
+    let settings =
     {
-        element.addEventListener("click", function(event)
+        hard: "stealth",
+        approach: "stealth",
+        target: "cash",
+        gunman: "karl",
+        driver: "karim",
+        hacker: "rickie",
+        weapon: "first",
+        vehicle: "first",
+        security: "level1"
+    };
+
+    /*
+        LOGIC
+    */
+    // Extras setter. Decoy and clean vehicle.
+    document.querySelectorAll(".extras > div").forEach((element) =>
+    {
+        element.addEventListener("click", (event) =>
         {
             let extra = event.target.classList[0];
             if (settings[extra])
@@ -704,6 +885,585 @@
         });
     });
 
-    
+    // WARNING: LAZY COPY-PASTE JOB AHEAD. sorry.
+    // (was tired and didn't want to use my brain)
+    // Target setter - left arrow
+    document.querySelector(".target .left").addEventListener("click", (event) =>
+    {
+        let parent = event.target.parentNode;
+        let target = parent.classList[1];
+        let index = casino.target.indexOf(target) - 1;
+        if (index < 0)
+            index = 3;
+
+        parent.classList.remove(target);
+        target = casino.target[index]
+        settings.target = target;
+        parent.classList.add(target);
+    });
+    // Target setter - right arrow
+    document.querySelector(".target .right").addEventListener("click", (event) =>
+    {
+        let parent = event.target.parentNode;
+        let target = parent.classList[1];
+        let index = casino.target.indexOf(target) + 1;
+        if (index > 3)
+            index = 0;
+
+        parent.classList.remove(target);
+        target = casino.target[index]
+        settings.target = target;
+        parent.classList.add(target);
+    });
+
+    function togglePrep(parent, approach)
+    {
+        let tick = parent.querySelector(".tick");
+        prep = parent.parentNode.className + parent.className[0].toUpperCase() + parent.className.slice(1);
+
+        if (settings[prep] == approach)
+        {
+            if (tick.classList.contains("hidden"))
+                tick.classList.remove("hidden");
+        }
+        else
+        {
+            if (!tick.classList.contains("hidden"))
+                tick.classList.add("hidden");
+        }
+    }
+    function toggleSpecifics(approach)
+    {
+        // handle disguise fields
+        let mandatoryFirst = document.querySelector(".specifics .mandatory .first");
+        let mandatorySecond = document.querySelector(".specifics .mandatory .second");
+        let optionalFirst = document.querySelector(".specifics .optional .first");
+        let optionalSecond = document.querySelector(".specifics .optional .second");
+
+        if(approach == "bigcon")
+        {
+            //set default disguises
+            mandatoryFirst.className = "first bugstars";
+            optionalSecond.className = "second firefighter";
+
+            //set ticks
+            let tick = mandatoryFirst.querySelector(".tick");
+            if (settings["bugstars"])
+            {
+                if (tick.classList.contains("hidden"))
+                    tick.classList.remove("hidden");
+            }
+            else
+            {
+                if (!tick.classList.contains("hidden"))
+                    tick.classList.add("hidden");
+            }
+
+            tick = optionalSecond.querySelector(".tick");
+            if (settings["firefighter"])
+            {
+                if (tick.classList.contains("hidden"))
+                    tick.classList.remove("hidden");
+            }
+            else
+            {
+                if (!tick.classList.contains("hidden"))
+                    tick.classList.add("hidden");
+            }
+
+            togglePrep(mandatorySecond, approach);
+            togglePrep(optionalFirst, approach);
+        }
+        else
+        {
+            //set classes for preps occupying same slot as disguise carousel
+            mandatoryFirst.className = "first";
+            optionalSecond.className = "second";
+
+            //set other preps
+            togglePrep(mandatoryFirst, approach);
+            togglePrep(mandatorySecond, approach);
+            togglePrep(optionalFirst, approach);
+            togglePrep(optionalSecond, approach);
+
+        }
+    }
+    // Approach setter - left arrow
+    document.querySelector(".approach .left").addEventListener("click", (event) =>
+    {
+        let parent = event.target.parentNode;
+        let root = parent.parentNode;
+        let approach = root.classList[1];
+        let index = casino.approach.indexOf(approach) - 1;
+
+        if (index < 0)
+            index = 2;
+
+        root.classList.remove(approach);
+        approach = casino.approach[index];
+        settings.approach = approach;
+        root.classList.add(approach);
+
+        //clear hard switch upon approach change.
+        //because lazy.
+        let hard = parent.querySelector(".hard");
+        if (!hard.classList.contains("hidden"))
+        {
+            hard.classList.add("hidden")
+            delete settings.hard;
+        }
+
+        toggleSpecifics(approach)
+    });
+    // Approach setter - right arrow
+    document.querySelector(".approach .right").addEventListener("click", (event) =>
+    {
+        let parent = event.target.parentNode;
+        let root = parent.parentNode;
+        let approach = root.classList[1];
+        let index = casino.approach.indexOf(approach) + 1;
+
+        if (index > 2)
+            index = 0;
+
+        root.classList.remove(approach);
+        approach = casino.approach[index];
+        settings.approach = approach;
+        root.classList.add(approach);
+
+        //clear hard switch upon approach change.
+        //because lazy.
+        let hard = parent.querySelector(".hard");
+        if (!hard.classList.contains("hidden"))
+        {
+            hard.classList.add("hidden")
+            delete settings.hard;
+        }
+
+        toggleSpecifics(approach)
+    });
+    // Approach setter - toggle hard mode
+    document.querySelector(".approach .pics").addEventListener("click", (event) =>
+    {
+        let parent = event.target.parentNode;
+        let root = parent.parentNode;
+        let approach = root.classList[1];
+
+        if (settings.hard)
+        {
+            delete settings.hard;
+            parent.querySelector(".hard").classList.add("hidden");
+        }
+        else
+        {
+            settings.hard = approach;
+            parent.querySelector(".hard").classList.remove("hidden");
+        }
+    });
+
+    /*
+        CREW
+    */
+    /*
+        GUNMAN
+    */
+    // Gunman setter - left arrow
+    document.querySelector(".gunman .pics .left").addEventListener("click", (event) =>
+    {
+        let parent = event.target.parentNode;
+        let gunmanElement = parent.parentNode;
+        let gunman = gunmanElement.classList[1];
+
+        let index = casino.gunman.indexOf(gunman) - 1;
+        if (index < 0)
+            index = 4;
+
+        gunmanElement.classList.remove(gunman);
+        gunman = casino.gunman[index];
+        settings.gunman = gunman;
+        gunmanElement.classList.add(gunman);
+    });
+
+    // Gunman setter - right arrow
+    document.querySelector(".gunman .pics .right").addEventListener("click", (event) =>
+    {
+        let parent = event.target.parentNode;
+        let gunmanElement = parent.parentNode;
+        let gunman = gunmanElement.classList[1];
+
+        let index = casino.gunman.indexOf(gunman) + 1;
+        if (index > 4)
+            index = 0;
+
+        gunmanElement.classList.remove(gunman);
+        gunman = casino.gunman[index];
+        settings.gunman = gunman;
+        gunmanElement.classList.add(gunman);
+    });
+
+    /*
+        GUNMAN WEAPON
+    */
+    document.querySelectorAll(".gunman .weapon .left, .gunman .weapon .right").forEach((element) =>
+    {
+        element.addEventListener("click", (event) =>
+        {
+            let parent = event.target.parentNode;
+            let weapon = parent.classList[1];
+            if (weapon == "first")
+            {
+                parent.classList.remove("first");
+                parent.classList.add("second");
+            }
+            else
+            {
+                parent.classList.remove("second");
+                parent.classList.add("first");
+
+            }
+            settings.weapon = parent.classList[1];
+        });
+    });
+
+
+    /*
+        DRIVER
+    */
+    // Driver setter - left arrow
+    document.querySelector(".driver .pics .left").addEventListener("click", (event) =>
+    {
+        let parent = event.target.parentNode;
+        let driverElement = parent.parentNode;
+        let driver = driverElement.classList[1];
+
+        let index = casino.driver.indexOf(driver) - 1;
+        if (index < 0)
+            index = 4;
+
+        driverElement.classList.remove(driver);
+        driver = casino.driver[index];
+        settings.driver = driver;
+        driverElement.classList.add(driver);
+    });
+    // Driver setter - right arrow
+    document.querySelector(".driver .pics .right").addEventListener("click", (event) =>
+    {
+        let parent = event.target.parentNode;
+        let driverElement = parent.parentNode;
+        let driver = driverElement.classList[1];
+
+        let index = casino.driver.indexOf(driver) + 1;
+        if (index > 4)
+            index = 0;
+
+        driverElement.classList.remove(driver);
+        driver = casino.driver[index];
+        settings.driver = driver;
+        driverElement.classList.add(driver);
+    });
+
+    /*
+        DRIVER VEHICLES
+    */
+    // Vehicle setter - left arrow
+    document.querySelector(".driver .vehicle .left").addEventListener("click", (event) =>
+    {
+        let parent = event.target.parentNode;
+        let vehicle = parent.classList[1];
+
+        let index = casino.vehicles.indexOf(vehicle) - 1;
+        if (index < 0)
+            index = 3;
+
+        parent.classList.remove(vehicle);
+        vehicle = casino.vehicles[index];
+        settings.vehicle = vehicle;
+        parent.classList.add(vehicle);
+    });
+    // Vehicle setter - right arrow
+    document.querySelector(".driver .vehicle .right").addEventListener("click", (event) =>
+    {
+        let parent = event.target.parentNode;
+        let vehicle = parent.classList[1];
+
+        let index = casino.vehicles.indexOf(vehicle) + 1;
+        if (index > 3)
+            index = 0;
+
+        parent.classList.remove(vehicle);
+        vehicle = casino.vehicles[index];
+        settings.vehicle = vehicle;
+        parent.classList.add(vehicle);
+    });
+
+    /*
+        HACKER
+    */
+    // Hacker setter - left arrow
+    document.querySelector(".hacker .pics .left").addEventListener("click", (event) =>
+    {
+        let parent = event.target.parentNode;
+        let hackerElement = parent.parentNode;
+        let hacker = hackerElement.classList[1];
+
+        let index = casino.hacker.indexOf(hacker) - 1;
+        if (index < 0)
+            index = 4;
+
+        hackerElement.classList.remove(hacker);
+        hacker = casino.hacker[index];
+        settings.hacker = hacker;
+        hackerElement.classList.add(hacker);
+    });
+    // Hacker setter - right arrow
+    document.querySelector(".hacker .pics .right").addEventListener("click", (event) =>
+    {
+        let parent = event.target.parentNode;
+        let hackerElement = parent.parentNode;
+        let hacker = hackerElement.classList[1];
+
+        let index = casino.hacker.indexOf(hacker) + 1;
+        if (index > 4)
+            index = 0;
+
+        hackerElement.classList.remove(hacker);
+        hacker = casino.hacker[index];
+        settings.hacker = hacker;
+        hackerElement.classList.add(hacker);
+    });
+
+    /*
+        HACKING DEVICE
+    */
+    document.querySelector(".lester_the_molester").addEventListener("click", (event) =>
+    {
+        let tick = event.target.querySelector(".tick");
+        if (settings.hackingDevice)
+        {
+            delete settings.hackingDevice;
+            tick.classList.add("hidden");
+        }
+        else
+        {
+            settings.hackingDevice = true;
+            tick.classList.remove("hidden");
+        }
+    });
+
+    /*
+        GENERAL PREP WORK
+    */
+    document.querySelectorAll(".general > div").forEach((element) =>
+    {
+        element.addEventListener("click", (event) =>
+        {
+            let tick = element.querySelector(".tick");
+            let prep = element.className;
+
+            if (settings[prep])
+            {
+                delete settings[prep];
+                tick.classList.add("hidden");
+            }
+            else
+            {
+                settings[prep] = true;
+                tick.classList.remove("hidden");
+            }
+        });
+    });
+
+    /*
+        APPROACH SPECIFIC PREPS
+    */
+    // BIG CON ENTRY DISGUISE ARROWS
+    function setDisguiseTick(parent, disguise)
+    {
+        let tick = parent.querySelector(".tick");
+        if (settings[disguise])
+            tick.classList.remove("hidden");
+        else if (!tick.classList.contains("hidden"))
+            tick.classList.add("hidden");
+    }
+    document.querySelector(".specifics .mandatory .first .left").addEventListener("click", (event) =>
+    {
+        let parent = event.target.parentNode;
+        let disguise = parent.classList[1];
+        let index = casino.disguise.indexOf(disguise) - 1;
+        if (index < 0)
+            index = 2;
+
+        parent.classList.remove(disguise);
+        disguise = casino.disguise[index];
+        parent.classList.add(disguise);
+
+        setDisguiseTick(parent, disguise);
+    });
+    document.querySelector(".specifics .mandatory .first .right").addEventListener("click", (event) =>
+    {
+        let parent = event.target.parentNode;
+        let disguise = parent.classList[1];
+        let index = casino.disguise.indexOf(disguise) + 1;
+        if (index > 2)
+            index = 0;
+
+        parent.classList.remove(disguise);
+        disguise = casino.disguise[index];
+        parent.classList.add(disguise);
+
+        setDisguiseTick(parent, disguise);
+    });
+
+    // MANDATORY FIRST TOGGLE
+    document.querySelector(".specifics .mandatory .first").addEventListener("click", (event) =>
+    {
+        //bubbling on arrows bypass
+        if (event.target.className == "left" || event.target.className == "right")
+            return;
+
+        let disguise = event.target.classList[1];
+        if (disguise)
+        {
+            if (settings[disguise])
+            {
+                delete settings[disguise];
+                event.target.querySelector(".tick").classList.add("hidden");
+            }
+            else
+            {
+                settings[disguise] = true;
+                event.target.querySelector(".tick").classList.remove("hidden");
+            }
+        }
+        else
+        {
+            if (settings.mandatoryFirst)
+            {
+                delete settings.mandatoryFirst;
+                event.target.querySelector(".tick").classList.add("hidden");
+            }
+            else
+            {
+                settings.mandatoryFirst = settings.approach;
+                event.target.querySelector(".tick").classList.remove("hidden");
+            }
+        }
+    });
+
+    // MANDATORY SECOND TOGGLE
+    document.querySelector(".specifics .mandatory .second").addEventListener("click", (event) =>
+    {
+        if (settings.mandatorySecond)
+        {
+            delete settings.mandatorySecond;
+            event.target.querySelector(".tick").classList.add("hidden");
+        }
+        else
+        {
+            settings.mandatorySecond = settings.approach;
+            event.target.querySelector(".tick").classList.remove("hidden");
+        }
+    });
+
+    // OPTIONAL FIRST TOGGLE
+    document.querySelector(".specifics .optional .first").addEventListener("click", (event) =>
+    {
+        if (settings.optionalFirst)
+        {
+            delete settings.optionalFirst;
+            event.target.querySelector(".tick").classList.add("hidden");
+        }
+        else
+        {
+            settings.optionalFirst = settings.approach;
+            event.target.querySelector(".tick").classList.remove("hidden");
+        }
+    });
+
+    // OPTIONAL SECOND ARROWS
+    document.querySelectorAll(".specifics .optional .second .left, .specifics .optional .second .right").forEach((element) =>
+    {
+        element.addEventListener("click", (event) =>
+        {
+            let parent = event.target.parentNode;
+            let disguise = parent.classList[1];
+
+            if (disguise == "firefighter")
+            {
+                parent.classList.remove("firefighter");
+                parent.classList.add("noose");
+                disguise = "noose";
+            }
+            else
+            {
+                parent.classList.remove("noose");
+                parent.classList.add("firefighter");
+                disguise = "firefighter";
+            }
+
+            setDisguiseTick(parent, disguise);
+        });
+    });
+
+    // OPTIONAL SECOND TOGGLE
+    document.querySelector(".specifics .optional .second").addEventListener("click", (event) =>
+    {
+        //bubbling on arrows bypass
+        if (event.target.className == "left" || event.target.className == "right")
+            return;
+
+        let disguise = event.target.classList[1];
+        if (disguise) //bigcon disguise carousel
+        {
+            if (settings[disguise])
+            {
+                delete settings[disguise];
+                event.target.querySelector(".tick").classList.add("hidden");
+            }
+            else
+            {
+                settings[disguise] = true;
+                event.target.querySelector(".tick").classList.remove("hidden");
+            }
+        }
+        else
+        {
+            if (settings.optionalSecond)
+            {
+                delete settings.optionalSecond;
+                event.target.querySelector(".tick").classList.add("hidden");
+            }
+            else
+            {
+                settings.optionalSecond = settings.approach;
+                event.target.querySelector(".tick").classList.remove("hidden");
+            }
+        }
+    });
+
+
+    /*
+        SECURITY
+    */
+    document.querySelectorAll(".security .left, .security .right").forEach((element) =>
+    {
+        element.addEventListener("click", (event) =>
+        {
+            let parent = event.target.parentNode;
+            let security = parent.classList[1];
+            if (security == "level1")
+            {
+                parent.classList.remove("level1");
+                parent.classList.add("level2");
+            }
+            else
+            {
+                parent.classList.remove("level2");
+                parent.classList.add("level1");
+            }
+            settings.security = parent.classList[1];
+        });
+    });
+
     </script>
 </html>
