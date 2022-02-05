@@ -1088,9 +1088,21 @@
     {
         target: ["cash", "gold", "art", "diamonds"],
         approach: ["stealth", "bigcon", "aggressive"],
-        gunman: ["karl", "charlie", "patrick", "gustavo", "chester"],
-        driver: ["karim", "zach", "taliana", "eddie", "chester"],
-        hacker: ["rickie", "yohan", "christian", "paige", "avi"],
+        gunman:
+        {
+            display: ["karl", "charlie", "patrick", "gustavo", "chester"],
+            data: ["karl", "gustavo", "charlie", "chester", "patrick"]
+        },
+        driver:
+        {
+            display: ["karim", "zach", "taliana", "eddie", "chester"],
+            data: ["karim", "taliana", "eddie", "zach", "chester"]
+        },
+        hacker:
+        {
+            display: ["rickie", "yohan", "christian", "paige", "avi"],
+            data: ["rickie", "christian", "yohan", "avi", "paige"]
+        },
         vehicle: ["first", "second", "third", "fourth"], //I know, right?
         disguise: ["bugstars", "sechs", "maintenance"],
         masks: ["geometric", "hunter", "oni", "emoji", "skull", "lucky", "guerilla", "clown", "animal", "riot", "fulloni", "hockey"]
@@ -1339,12 +1351,12 @@
         let gunmanElement = parent.parentNode;
         let gunman = gunmanElement.classList[1];
 
-        let index = casino.gunman.indexOf(gunman) + 1;
+        let index = casino.gunman.display.indexOf(gunman) + 1;
         if (index > 4)
             index = 0;
 
         gunmanElement.classList.remove(gunman);
-        gunman = casino.gunman[index];
+        gunman = casino.gunman.display[index];
         settings.gunman = gunman;
         gunmanElement.classList.add(gunman);
     });
@@ -1384,12 +1396,12 @@
         let driverElement = parent.parentNode;
         let driver = driverElement.classList[1];
 
-        let index = casino.driver.indexOf(driver) - 1;
+        let index = casino.driver.display.indexOf(driver) - 1;
         if (index < 0)
             index = 4;
 
         driverElement.classList.remove(driver);
-        driver = casino.driver[index];
+        driver = casino.driver.display[index];
         settings.driver = driver;
         driverElement.classList.add(driver);
     });
@@ -1400,12 +1412,12 @@
         let driverElement = parent.parentNode;
         let driver = driverElement.classList[1];
 
-        let index = casino.driver.indexOf(driver) + 1;
+        let index = casino.driver.display.indexOf(driver) + 1;
         if (index > 4)
             index = 0;
 
         driverElement.classList.remove(driver);
-        driver = casino.driver[index];
+        driver = casino.driver.display[index];
         settings.driver = driver;
         driverElement.classList.add(driver);
     });
@@ -1454,12 +1466,12 @@
         let hackerElement = parent.parentNode;
         let hacker = hackerElement.classList[1];
 
-        let index = casino.hacker.indexOf(hacker) - 1;
+        let index = casino.hacker.display.indexOf(hacker) - 1;
         if (index < 0)
             index = 4;
 
         hackerElement.classList.remove(hacker);
-        hacker = casino.hacker[index];
+        hacker = casino.hacker.display[index];
         settings.hacker = hacker;
         hackerElement.classList.add(hacker);
     });
@@ -1470,12 +1482,12 @@
         let hackerElement = parent.parentNode;
         let hacker = hackerElement.classList[1];
 
-        let index = casino.hacker.indexOf(hacker) + 1;
+        let index = casino.hacker.display.indexOf(hacker) + 1;
         if (index > 4)
             index = 0;
 
         hackerElement.classList.remove(hacker);
-        hacker = casino.hacker[index];
+        hacker = casino.hacker.display[index];
         settings.hacker = hacker;
         hackerElement.classList.add(hacker);
     });
@@ -1752,7 +1764,7 @@
         stat.push(approachIndex == 3 ? Math.floor(Math.random() * 2) + 1 : 3);
 
         stat.push("$MPx_H3OPT_TARGET");
-        stat.push(casino.target.indexOf(settings.target));
+        stat.push(casino.target.indexOf(settings.target) + 1);
 
         stat.push("$MPx_H3OPT_BITSET1");
         let internal = 1 + 2; //vault contents(bit 0) + keys(bit 1)
@@ -1798,13 +1810,13 @@
         }
 
         stat.push("$MPx_H3OPT_CREWWEAP");
-        stat.push(casino.gunman.indexOf(settings.gunman));
+        stat.push(casino.gunman.data.indexOf(settings.gunman) + 1);
 
         stat.push("$MPx_H3OPT_CREWDRIVER");
-        stat.push(casino.driver.indexOf(settings.driver));
+        stat.push(casino.driver.data.indexOf(settings.driver) + 1);
 
         stat.push("$MPx_H3OPT_CREWHACKER");
-        stat.push(casino.hacker.indexOf(settings.hacker));
+        stat.push(casino.hacker.data.indexOf(settings.hacker) + 1);
 
         stat.push("$MPx_H3OPT_VEHS");
         stat.push(casino.vehicle.indexOf(settings.vehicle));
@@ -1868,7 +1880,7 @@
         if(settings.mask)
         {
             stat.push("$MPx_H3OPT_MASKS");
-            stat.push(casino.masks.indexOf(settings.mask));
+            stat.push(casino.masks.indexOf(settings.mask) + 1);
         }
 
         return stat.join("\n");
