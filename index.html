@@ -2078,8 +2078,6 @@
 
         stat.push("$MPx_H3OPT_BITSET1");
         let internal = 1 + 2; //vault contents(bit 0) + keys(bit 1)
-        console.log (settings.weapon.weapon)
-        console.log (1 << 2)
         if (settings.weapon.weapon)
             internal += 1 << 2;
 
@@ -2131,10 +2129,10 @@
         stat.push(casino.hacker.data.indexOf(settings.hacker) + 1);
 
         stat.push("$MPx_H3OPT_VEHS");
-        stat.push(casino.vehicle.indexOf(settings.vehicle));
+        stat.push(casino.vehicle.indexOf(settings.vehicle.vehicle));
 
         stat.push("$MPx_H3OPT_WEAPS");
-        stat.push(settings.weapon == "first" ? "0" : "1");
+        stat.push(settings.weapon.weapon == "first" ? "0" : "1");
 
 
         stat.push("$MPx_H3OPT_BITSET0");
