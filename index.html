@@ -1084,6 +1084,23 @@
                 transition: opacity 3s ease-in;
             }
 
+            .back
+            {
+                position: absolute;
+                background-image: url("img/button_back.png");
+                background-size: contain;
+                width: 4vw;
+                height: 4vw;
+                top: 44vw;
+                left: 17vw;
+                cursor: pointer;
+                pointer-events: all;
+                transition: filter 0.2s ease-in-out;
+            }
+            .back:hover
+            {
+                filter: brightness(150%);
+            }
         </style>
     </head>
     <body>
@@ -1199,6 +1216,7 @@
                 <div id="downloadButton" class="statTextButton">download</div>
                 <div id="displayButton" class="statTextButton">display</div>
             </div>
+            <a class="back" href="https://beholdmystuff.github.io/heist-stat.txt-maker/"></a>
             <div class="statTextViewer hidden" contenteditable="true"></div>
             <div class="overlay hidden"></div>
         </div>
