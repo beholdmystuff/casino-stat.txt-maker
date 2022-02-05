@@ -59,12 +59,12 @@
             {
                 background-image: url("img/extras_decoy.png");
             }
-            .extras .vehicle
+            .extras .clean
             {
                 background-image: url("img/extras_vehicle.png");
             }
             .extras .decoy .tick,
-            .extras .vehicle .tick
+            .extras .clean .tick
             {
                 top: 5.9vw;
                 left: 7vw;
@@ -73,7 +73,7 @@
                 background-image: url("img/tick_blue.png");
                 background-position: 27% 65%;
             }
-            .extras .vehicle .tick
+            .extras .clean .tick
             {
                 top: 5.7vw;
             }
@@ -371,13 +371,52 @@
                 width: inherit;
                 height: 10vw;
                 background-size: contain;
+                cursor: pointer;
+                pointer-events: all;
             }
 
             /*
                 GUNMAN WEAPONS
             */
-            /* single line to save some vertical eye space */
-            /* karl */
+            .gunman .tick,
+            .driver .tick
+            {
+                content: " ";
+                width: 1vw;
+                height: 1vw;
+                position: absolute;
+                border: 1px solid red;
+                background-size: 150% 150%;
+                background-image: url("img/tick_black.png");
+                background-position: 27% 65%;
+                pointer-events: none;
+                display: none;
+
+            }
+            .gunman.tick > .tick,
+            .driver.tick > .tick
+            {
+                display: block;
+            }
+
+            /*
+                KARL
+            */
+            /* make tick visible */
+            .casino.stealth > .crew > .gunman.karl.tick > .weapon.first + .tick
+            { top: 19.6vw; left: 0.9vw; }
+            .casino.stealth > .crew > .gunman.karl.tick > .weapon.second + .tick
+            { top: 19.6vw; left: 1.5vw; }
+            .casino.bigcon > .crew > .gunman.karl.tick > .weapon.first + .tick
+            { top: 19.6vw; left: 0.9vw; }
+            .casino.bigcon > .crew > .gunman.karl.tick > .weapon.second + .tick
+            { top: 19.6vw; left: 1vw; }
+            .casino.aggressive > .crew > .gunman.karl.tick > .weapon.first + .tick
+            { top: 19.5vw; left: 0.8vw; }
+            .casino.aggressive > .crew > .gunman.karl.tick > .weapon.second + .tick
+            { top: 19.5vw; left: 1.1vw; }
+
+            /* set picture */
             .casino.stealth .crew .gunman.karl .weapon.first { background-image: url("img/gunman_karl_stealth_smg.png"); }
             .casino.stealth .crew .gunman.karl .weapon.second { background-image: url("img/gunman_karl_stealth_pistol.png"); }
             .casino.bigcon .crew .gunman.karl .weapon.first { background-image: url("img/gunman_karl_bigcon_smg.png"); }
@@ -385,7 +424,23 @@
             .casino.aggressive .crew .gunman.karl .weapon.first { background-image: url("img/gunman_karl_aggressive_shotgun.png"); }
             .casino.aggressive .crew .gunman.karl .weapon.second { background-image: url("img/gunman_karl_aggressive_revolver.png"); }
 
-            /* charlie */
+            /*
+                CHARLIE
+            */
+            /* make tick visible */
+            .casino.stealth > .crew > .gunman.charlie.tick > .weapon.first + .tick
+            { top: 19.6vw; left: 2.2vw; }
+            .casino.stealth > .crew > .gunman.charlie.tick > .weapon.second + .tick
+            { top: 19.6vw; left: 1vw; }
+            .casino.bigcon > .crew > .gunman.charlie.tick > .weapon.first + .tick
+            { top: 19.6vw; left: 0.9vw; }
+            .casino.bigcon > .crew > .gunman.charlie.tick > .weapon.second + .tick
+            { top: 19.5vw; left: 1.6vw; }
+            .casino.aggressive > .crew > .gunman.charlie.tick > .weapon.first + .tick
+            { top: 19.5vw; left: 2.2vw; }
+            .casino.aggressive > .crew > .gunman.charlie.tick > .weapon.second + .tick
+            { top: 19.5vw; left: 1.1vw; }
+            /* set picture */
             .casino.stealth .crew .gunman.charlie .weapon.first { background-image: url("img/gunman_charlie_stealth_smg.png"); }
             .casino.stealth .crew .gunman.charlie .weapon.second { background-image: url("img/gunman_charlie_stealth_shotgun.png"); }
             .casino.bigcon .crew .gunman.charlie .weapon.first { background-image: url("img/gunman_charlie_bigcon_pistol.png"); }
@@ -393,7 +448,23 @@
             .casino.aggressive .crew .gunman.charlie .weapon.first { background-image: url("img/gunman_charlie_aggressive_smg.png"); }
             .casino.aggressive .crew .gunman.charlie .weapon.second { background-image: url("img/gunman_charlie_aggressive_shotgun.png"); }
 
-            /* patrick */
+            /*
+                PATRICK
+            */
+            /* make tick visible */
+            .casino.stealth > .crew > .gunman.patrick.tick > .weapon.first + .tick
+            { top: 19.6vw; left: 0.3vw; }
+            .casino.stealth > .crew > .gunman.patrick.tick > .weapon.second + .tick
+            { top: 19.6vw; left: 1.9vw; }
+            .casino.bigcon > .crew > .gunman.patrick.tick > .weapon.first + .tick
+            { top: 19.6vw; left: 0.9vw; }
+            .casino.bigcon > .crew > .gunman.patrick.tick > .weapon.second + .tick
+            { top: 19.6vw; left: 1.9vw; }
+            .casino.aggressive > .crew > .gunman.patrick.tick > .weapon.first + .tick
+            { top: 19.5vw; left: 0.7vw; }
+            .casino.aggressive > .crew > .gunman.patrick.tick > .weapon.second + .tick
+            { top: 19.5vw; left: 1vw; }
+            /* set picture */
             .casino.stealth .crew .gunman.patrick .weapon.first { background-image: url("img/gunman_patrick_stealth_combatpdw.png"); }
             .casino.stealth .crew .gunman.patrick .weapon.second { background-image: url("img/gunman_patrick_stealth_rifle.png"); }
             .casino.bigcon .crew .gunman.patrick .weapon.first { background-image: url("img/gunman_patrick_bigcon_shotgun.png"); }
@@ -401,7 +472,23 @@
             .casino.aggressive .crew .gunman.patrick .weapon.first { background-image: url("img/gunman_patrick_aggressive_shotgun.png"); }
             .casino.aggressive .crew .gunman.patrick .weapon.second { background-image: url("img/gunman_patrick_aggressive_mg.png"); }
 
-            /* gustavo */
+            /*
+                GUSTAVO
+            */
+            /* make tick visible */
+            .casino.stealth > .crew > .gunman.gustavo.tick > .weapon.first + .tick
+            { top: 19.7vw; left: 2vw; }
+            .casino.stealth > .crew > .gunman.gustavo.tick > .weapon.second + .tick
+            { top: 19.6vw; left: 1.1vw; }
+            .casino.bigcon > .crew > .gunman.gustavo.tick > .weapon.first + .tick
+            { top: 19.6vw; left: 2vw; }
+            .casino.bigcon > .crew > .gunman.gustavo.tick > .weapon.second + .tick
+            { top: 19.6vw; left: 1.1vw; }
+            .casino.aggressive > .crew > .gunman.gustavo.tick > .weapon.first + .tick
+            { top: 19.5vw; left: 1.8vw; }
+            .casino.aggressive > .crew > .gunman.gustavo.tick > .weapon.second + .tick
+            { top: 19.5vw; left: 1vw; }
+            /* set picture */
             .casino.stealth .crew .gunman.gustavo .weapon.first { background-image: url("img/gunman_gustavo_stealth_rifle.png"); }
             .casino.stealth .crew .gunman.gustavo .weapon.second { background-image: url("img/gunman_gustavo_stealth_shotgun.png"); }
             .casino.bigcon .crew .gunman.gustavo .weapon.first { background-image: url("img/gunman_gustavo_bigcon_rifle.png"); }
@@ -409,7 +496,21 @@
             .casino.aggressive .crew .gunman.gustavo .weapon.first { background-image: url("img/gunman_gustavo_aggressive_rifle.png"); }
             .casino.aggressive .crew .gunman.gustavo .weapon.second { background-image: url("img/gunman_gustavo_aggressive_shotgun.png"); }
 
-            /* chester */
+            /*
+                CHESTER
+            */
+            .casino.stealth > .crew > .gunman.chester.tick > .weapon.first + .tick
+            { top: 19.4vw; left: 1.8vw; }
+            .casino.stealth > .crew > .gunman.chester.tick > .weapon.second + .tick
+            { top: 19.6vw; left: 0.8vw; }
+            .casino.bigcon > .crew > .gunman.chester.tick > .weapon.first + .tick
+            { top: 19.6vw; left: 1.1vw; }
+            .casino.bigcon > .crew > .gunman.chester.tick > .weapon.second + .tick
+            { top: 19.6vw; left: 0.7vw; }
+            .casino.aggressive > .crew > .gunman.chester.tick > .weapon.first + .tick
+            { top: 19.5vw; left: 1.8vw; }
+            .casino.aggressive > .crew > .gunman.chester.tick > .weapon.second + .tick
+            { top: 19.5vw; left: 0.7vw; }
             .casino.stealth .crew .gunman.chester .weapon.first { background-image: url("img/gunman_chester_stealth_shotgun.png"); }
             .casino.stealth .crew .gunman.chester .weapon.second { background-image: url("img/gunman_chester_stealth_rifle.png"); }
             .casino.bigcon .crew .gunman.chester .weapon.first { background-image: url("img/gunman_chester_bigcon_smg.png"); }
@@ -422,30 +523,50 @@
                 DRIVER VEHICLES
             */
             /* karim */
+            .driver.karim.tick > .vehicle.first + .tick { top: 19.6vw; left: 2.1vw; }
+            .driver.karim.tick > .vehicle.second + .tick { top: 19.6vw; left: 3.8vw; }
+            .driver.karim.tick > .vehicle.third + .tick { top: 19.6vw; left: 3.5vw; }
+            .driver.karim.tick > .vehicle.fourth + .tick { top: 19.6vw; left: 2.4vw; }
             .casino .crew .driver.karim .vehicle.first { background-image: url("img/driver_karim_issi.png"); }
             .casino .crew .driver.karim .vehicle.second { background-image: url("img/driver_karim_asbo.png"); }
             .casino .crew .driver.karim .vehicle.third { background-image: url("img/driver_karim_kanjo.png"); }
             .casino .crew .driver.karim .vehicle.fourth { background-image: url("img/driver_karim_sentinel.png"); }
 
             /* zach */
+            .driver.zach.tick > .vehicle.first + .tick { top: 20.2vw; left: 3vw; }
+            .driver.zach.tick > .vehicle.second + .tick { top: 20.2vw; left: 3vw; }
+            .driver.zach.tick > .vehicle.third + .tick { top: 20.2vw; left: 3.2vw; }
+            .driver.zach.tick > .vehicle.fourth + .tick { top: 20.2vw; left: 3.4vw; }
             .casino .crew .driver.zach .vehicle.first { background-image: url("img/driver_zach_manchez.png"); }
             .casino .crew .driver.zach .vehicle.second { background-image: url("img/driver_zach_stryder.png"); }
             .casino .crew .driver.zach .vehicle.third { background-image: url("img/driver_zach_defiler.png"); }
             .casino .crew .driver.zach .vehicle.fourth { background-image: url("img/driver_zach_lectro.png"); }
 
             /* taliana */
+            .driver.taliana.tick > .vehicle.first + .tick { top: 19.5vw; left: 1.8vw; }
+            .driver.taliana.tick > .vehicle.second + .tick { top: 19.6vw; left: 1.2vw; }
+            .driver.taliana.tick > .vehicle.third + .tick { top: 19.6vw; left: 3.5vw; }
+            .driver.taliana.tick > .vehicle.fourth + .tick { top: 19.6vw; left: 2.9vw; }
             .casino .crew .driver.taliana .vehicle.first { background-image: url("img/driver_taliana_retinue.png"); }
             .casino .crew .driver.taliana .vehicle.second { background-image: url("img/driver_taliana_yosemite.png"); }
             .casino .crew .driver.taliana .vehicle.third { background-image: url("img/driver_taliana_sugoi.png"); }
             .casino .crew .driver.taliana .vehicle.fourth { background-image: url("img/driver_taliana_jugular.png"); }
 
             /* eddie */
+            .driver.eddie.tick > .vehicle.first + .tick { top: 19.5vw; left: 1.2vw; }
+            .driver.eddie.tick > .vehicle.second + .tick { top: 19.5vw; left: 2.3vw; }
+            .driver.eddie.tick > .vehicle.third + .tick { top: 19.6vw; left: 3.5vw; }
+            .driver.eddie.tick > .vehicle.fourth + .tick { top: 19.6vw; left: 3.3vw; }
             .casino .crew .driver.eddie .vehicle.first { background-image: url("img/driver_eddie_sultan.png"); }
             .casino .crew .driver.eddie .vehicle.second { background-image: url("img/driver_eddie_gauntlet.png"); }
             .casino .crew .driver.eddie .vehicle.third { background-image: url("img/driver_eddie_ellie.png"); }
             .casino .crew .driver.eddie .vehicle.fourth { background-image: url("img/driver_eddie_komoda.png"); }
 
             /* chester */
+            .driver.chester.tick > .vehicle.first + .tick { top: 19.5vw; left: 3.5vw; }
+            .driver.chester.tick > .vehicle.second + .tick { top: 19.5vw; left: 2.9vw; }
+            .driver.chester.tick > .vehicle.third + .tick { top: 19.5vw; left: 3vw; }
+            .driver.chester.tick > .vehicle.fourth + .tick { top: 19.5vw; left: 3.2vw; }
             .casino .crew .driver.chester .vehicle.first { background-image: url("img/driver_chester_zhaba.png"); }
             .casino .crew .driver.chester .vehicle.second { background-image: url("img/driver_chester_vagrant.png"); }
             .casino .crew .driver.chester .vehicle.third { background-image: url("img/driver_chester_outlaw.png"); }
@@ -485,7 +606,7 @@
             }
             .general .keycards,
             .general .routes,
-            .general .shipments,
+            .general .shipment,
             .general .intel,
             .general .drills
             {
@@ -517,7 +638,7 @@
                 top: 8.95vw;
                 left: 10.6vw;
             }
-            .general .shipments .tick
+            .general .shipment .tick
             {
                 top: 9.05vw;
                 left: 20.55vw;
@@ -969,7 +1090,7 @@
         <div class="casino stealth">
             <div class="extras">
                 <div class="decoy"><div class="tick hidden"></div></div>
-                <div class="vehicle"><div class="tick hidden"></div></div>
+                <div class="clean"><div class="tick hidden"></div></div>
             </div>
             <div class="approach">
                 <div class="label"></div>
@@ -984,7 +1105,7 @@
             </div>
             <div class="crew">
                 <div class="label"></div>
-                <div class="gunman karl ">
+                <div class="gunman karl">
                     <div class="pics">
                         <div class="left"></div>
                         <div class="right"></div>
@@ -993,6 +1114,7 @@
                         <div class="left"></div>
                         <div class="right"></div>
                     </div>
+                    <div class="tick"></div>
                 </div>
                 <div class="driver karim">
                     <div class="pics">
@@ -1003,6 +1125,7 @@
                         <div class="left"></div>
                         <div class="right"></div>
                     </div>
+                    <div class="tick"></div>
                 </div>
                 <div class="hacker rickie">
                     <div class="pics">
@@ -1019,7 +1142,7 @@
                 <div class="routes">
                     <div class="tick hidden"></div>
                 </div>
-                <div class="shipments">
+                <div class="shipment">
                     <div class="tick hidden"></div>
                 </div>
                 <div class="intel">
@@ -1116,9 +1239,8 @@
         gunman: "karl",
         driver: "karim",
         hacker: "rickie",
-        weapon: "first",
-        vehicle: "first",
-        security: "level1"
+        weapon: {approach: "stealth", weapon: undefined, gunman: "karl"},
+        vehicle: {vehicle: undefined, driver: "karim"}
     };
 
     /*
@@ -1245,8 +1367,9 @@
             togglePrep(mandatorySecond, approach);
             togglePrep(optionalFirst, approach);
             togglePrep(optionalSecond, approach);
-
         }
+
+
     }
     // Approach setter - left arrow
     document.querySelector(".approach .left").addEventListener("click", (event) =>
@@ -1255,6 +1378,8 @@
         let root = parent.parentNode;
         let approach = root.classList[1];
         let index = casino.approach.indexOf(approach) - 1;
+        let gunman = document.querySelector(".crew .gunman");
+        let weapon = document.querySelector(".crew .gunman .weapon");
 
         if (index < 0)
             index = 2;
@@ -1273,7 +1398,16 @@
             delete settings.hard;
         }
 
-        toggleSpecifics(approach)
+        toggleSpecifics(approach);
+
+        //weapon tick
+        if (gunman.classList.contains("tick"))
+            gunman.classList.remove("tick");
+
+        if(settings.weapon.weapon == weapon.classList[1]
+        && settings.weapon.gunman == gunman.classList[1]
+        && settings.weapon.approach == approach)
+                gunman.classList.add("tick");
     });
     // Approach setter - right arrow
     document.querySelector(".approach .right").addEventListener("click", (event) =>
@@ -1282,6 +1416,8 @@
         let root = parent.parentNode;
         let approach = root.classList[1];
         let index = casino.approach.indexOf(approach) + 1;
+        let gunman = document.querySelector(".crew .gunman");
+        let weapon = document.querySelector(".crew .gunman .weapon");
 
         if (index > 2)
             index = 0;
@@ -1300,7 +1436,20 @@
             delete settings.hard;
         }
 
-        toggleSpecifics(approach)
+        toggleSpecifics(approach);
+
+        //weapon tick
+        if (gunman.classList.contains("tick"))
+            gunman.classList.remove("tick");
+
+        console.log(settings.weapon.weapon, weapon.classList[1]);
+        console.log(settings.weapon.gunman, gunman.classList[1]);
+        console.log(settings.weapon.approach, approach);
+
+        if(settings.weapon.weapon == weapon.classList[1]
+        && settings.weapon.gunman == gunman.classList[1]
+        && settings.weapon.approach == approach)
+                gunman.classList.add("tick");
     });
     // Approach setter - toggle hard mode
     document.querySelector(".approach .pics").addEventListener("click", (event) =>
@@ -1333,15 +1482,25 @@
         let parent = event.target.parentNode;
         let gunmanElement = parent.parentNode;
         let gunman = gunmanElement.classList[1];
+        let weapon = parent.parentNode.querySelector(".weapon").classList[1];
+        let approach = document.querySelector(".casino").classList[1];
 
-        let index = casino.gunman.indexOf(gunman) - 1;
+        let index = casino.gunman.display.indexOf(gunman) - 1;
         if (index < 0)
             index = 4;
 
         gunmanElement.classList.remove(gunman);
-        gunman = casino.gunman[index];
+        gunman = casino.gunman.display[index];
         settings.gunman = gunman;
         gunmanElement.classList.add(gunman);
+
+        if (parent.parentNode.classList.contains("tick"))
+            parent.parentNode.classList.remove("tick");
+
+        if(settings.weapon.weapon == weapon
+        && settings.weapon.gunman == gunman
+        && settings.weapon.approach == approach)
+            gunmanElement.classList.add("tick");
     });
 
     // Gunman setter - right arrow
@@ -1350,6 +1509,8 @@
         let parent = event.target.parentNode;
         let gunmanElement = parent.parentNode;
         let gunman = gunmanElement.classList[1];
+        let weapon = parent.parentNode.querySelector(".weapon").classList[1];
+        let approach = document.querySelector(".casino").classList[1];
 
         let index = casino.gunman.display.indexOf(gunman) + 1;
         if (index > 4)
@@ -1359,6 +1520,14 @@
         gunman = casino.gunman.display[index];
         settings.gunman = gunman;
         gunmanElement.classList.add(gunman);
+
+        if (parent.parentNode.classList.contains("tick"))
+            parent.parentNode.classList.remove("tick");
+
+        if(settings.weapon.weapon == weapon
+        && settings.weapon.gunman == gunman
+        && settings.weapon.approach == approach)
+            gunmanElement.classList.add("tick");
     });
 
     /*
@@ -1368,21 +1537,72 @@
     {
         element.addEventListener("click", (event) =>
         {
+
             let parent = event.target.parentNode;
             let weapon = parent.classList[1];
+            let gunman = parent.parentNode;
+            if(parent.classList.contains("gunman"))
+                return;
+            let approach = document.querySelector(".casino").classList[1];
+
             if (weapon == "first")
             {
+                weapon = "second";
                 parent.classList.remove("first");
-                parent.classList.add("second");
+                parent.classList.add(weapon);
             }
             else
             {
+                weapon = "first";
                 parent.classList.remove("second");
-                parent.classList.add("first");
-
+                parent.classList.add(weapon);
             }
-            settings.weapon = parent.classList[1];
+
+            if (parent.parentNode.classList.contains("tick"))
+                parent.parentNode.classList.remove("tick");
+
+            if(settings.weapon.weapon == weapon
+            && settings.weapon.gunman == gunman.classList[1]
+            && settings.weapon.approach == approach)
+                    parent.parentNode.classList.add("tick");
         });
+    });
+
+    //confirm weapon
+    document.querySelector(".gunman .weapon").addEventListener("click", (event) =>
+    {
+        //prevent arrow event bubbling
+        if(event.target.className == "left" || event.target.className == "right")
+        {
+            event.stopPropagation();
+            return;
+        }
+
+        let parent = event.target.parentNode;
+        let weapon = event.target;
+        let approach = document.querySelector(".casino").classList[1];
+
+        if(settings.weapon.weapon == weapon.classList[1]
+        && settings.weapon.gunman == parent.classList[1]
+        && settings.weapon.approach == approach)
+        {
+            if (parent.classList.contains("tick"))
+                parent.classList.remove("tick");
+            delete settings.weapon.weapon;
+        }
+        else
+        {
+            if (!parent.classList.contains("tick"))
+            {
+                parent.classList.add("tick");
+                settings.weapon = {"approach": settings.approach, "weapon": weapon.classList[1], "gunman": settings.gunman};
+            }
+            else
+            {
+                parent.classList.remove("tick");
+                delete settings.weapon.weapon;
+            }
+        }
     });
 
 
@@ -1395,6 +1615,7 @@
         let parent = event.target.parentNode;
         let driverElement = parent.parentNode;
         let driver = driverElement.classList[1];
+        let vehicle = driverElement.querySelector(".vehicle").classList[1];
 
         let index = casino.driver.display.indexOf(driver) - 1;
         if (index < 0)
@@ -1404,6 +1625,14 @@
         driver = casino.driver.display[index];
         settings.driver = driver;
         driverElement.classList.add(driver);
+
+        if(settings.vehicle.vehicle == vehicle && settings.vehicle.driver == driver)
+        {
+            if (!parent.parentNode.classList.contains("tick"))
+                parent.parentNode.classList.add("tick");
+        }
+        else
+            parent.parentNode.classList.remove("tick");
     });
     // Driver setter - right arrow
     document.querySelector(".driver .pics .right").addEventListener("click", (event) =>
@@ -1411,6 +1640,7 @@
         let parent = event.target.parentNode;
         let driverElement = parent.parentNode;
         let driver = driverElement.classList[1];
+        let vehicle = driverElement.querySelector(".vehicle").classList[1];
 
         let index = casino.driver.display.indexOf(driver) + 1;
         if (index > 4)
@@ -1420,6 +1650,14 @@
         driver = casino.driver.display[index];
         settings.driver = driver;
         driverElement.classList.add(driver);
+
+        if(settings.vehicle.vehicle == vehicle && settings.vehicle.driver == driver)
+        {
+            if (!parent.parentNode.classList.contains("tick"))
+                parent.parentNode.classList.add("tick");
+        }
+        else
+            parent.parentNode.classList.remove("tick");
     });
 
     /*
@@ -1437,14 +1675,27 @@
 
         parent.classList.remove(vehicle);
         vehicle = casino.vehicle[index];
-        settings.vehicle = vehicle;
         parent.classList.add(vehicle);
+
+        if(settings.vehicle.vehicle == vehicle && settings.vehicle.driver == driver)
+        {
+            if (!parent.parentNode.classList.contains("tick"))
+                parent.parentNode.classList.add("tick");
+        }
+        else
+            parent.parentNode.classList.remove("tick");
     });
     // Vehicle setter - right arrow
     document.querySelector(".driver .vehicle .right").addEventListener("click", (event) =>
     {
+
         let parent = event.target.parentNode;
+        if(event.target.classList.contains("vehicle"))
+            return;
+
         let vehicle = parent.classList[1];
+        let driver = parent.parentNode.classList[1];
+        let approach = document.querySelector(".casino").classList[1];
 
         let index = casino.vehicle.indexOf(vehicle) + 1;
         if (index > 3)
@@ -1452,8 +1703,48 @@
 
         parent.classList.remove(vehicle);
         vehicle = casino.vehicle[index];
-        settings.vehicle = vehicle;
         parent.classList.add(vehicle);
+
+        if(settings.vehicle.vehicle == vehicle && settings.vehicle.driver == driver)
+        {
+            if (!parent.parentNode.classList.contains("tick"))
+                parent.parentNode.classList.add("tick");
+        }
+        else
+            parent.parentNode.classList.remove("tick");
+    });
+
+    //confirm driver
+    document.querySelector(".driver .vehicle").addEventListener("click", (event) =>
+    {
+        //bubbling on arrows bypass
+        if (event.target.className == "left" || event.target.className == "right")
+            return;
+
+        let parent = event.target.parentNode;
+        let vehicle = event.target.classList[1];
+        let driver = event.target.parentNode.classList[1];
+        let approach = document.querySelector(".casino").classList[1];
+
+        if(settings.vehicle == vehicle)
+        {
+            if (parent.classList.contains("tick"))
+                parent.classList.remove("tick");
+            delete settings.vehicle.vehicle;
+        }
+        else
+        {
+            if (!parent.classList.contains("tick"))
+            {
+                parent.classList.add("tick");
+                settings.vehicle = {"vehicle": vehicle, "driver": driver};
+            }
+            else
+            {
+                parent.classList.remove("tick");
+                delete settings.vehicle.vehicle;
+            }
+        }
     });
 
     /*
@@ -1491,6 +1782,7 @@
         settings.hacker = hacker;
         hackerElement.classList.add(hacker);
     });
+
 
     /*
         HACKING DEVICE
@@ -1764,14 +2056,16 @@
         stat.push(approachIndex == 3 ? Math.floor(Math.random() * 2) + 1 : 3);
 
         stat.push("$MPx_H3OPT_TARGET");
-        stat.push(casino.target.indexOf(settings.target) + 1);
+        stat.push(casino.target.indexOf(settings.target));
 
         stat.push("$MPx_H3OPT_BITSET1");
         let internal = 1 + 2; //vault contents(bit 0) + keys(bit 1)
-        if (settings.gotWeapon)
+        console.log (settings.weapon.weapon)
+        console.log (1 << 2)
+        if (settings.weapon.weapon)
             internal += 1 << 2;
 
-        if (settings.gotVehicles)
+        if (settings.vehicle.vehicle)
             internal += 1 << 3;
 
         if (settings.hackingDevice)
@@ -1794,7 +2088,7 @@
 
         stat.push(internal);
 
-        if (settings.shipments)
+        if (settings.shipment)
         {
             stat.push("$MPx_H3OPT_DISRUPTSHIP");
             stat.push("3"); //full power
@@ -1845,7 +2139,7 @@
         if (settings.decoy)
             external += 1 << 6;
 
-        if (settings.vehicle)
+        if (settings.clean)
             external += 1 << 7;
 
         if (settings.bugstars)
@@ -1866,13 +2160,13 @@
         if (settings.firefighter)
             external += 1 << 17;
 
-        if (settings.highroller)
-            external += 1 << 18;
-
-        if (settings.optionalFirst == "aggressive")
-            external += 1 << 19;
+        // if (settings.highroller)
+        external += 1 << 18;
 
         if (settings.optionalSecond == "aggressive")
+            external += 1 << 19;
+
+        if (settings.optionalFirst == "aggressive")
             external += 1 << 20;
 
         stat.push(external);
