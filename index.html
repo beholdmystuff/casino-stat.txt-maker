@@ -862,6 +862,10 @@
             /*
                 MASKS
              */
+             .masks
+             {
+                 position: absolute;
+             }
             .masks > div
             {
                 position: absolute;
@@ -870,39 +874,73 @@
                 cursor: url("img/cursor.png") 10 2,pointer;
                 transition: filter 0.2s ease-in-out;
             }
+            .masks > div::after
+            {
+                position: relative;
+                background-size: contain;
+                pointer-events: none;
+                transition: filter 0.2s ease-in-out;
+                display: block;
+                content: " ";
+            }
 
             .masks .geometric
+            {
+                width: 7vw;
+                height: 7vw;
+                top: 6vw;
+                left: 13vw;
+            }
+            .masks .geometric::after
             {
                 background-image: url("img/mask_geometric.png");
                 width: 9vw;
                 height: 9vw;
-                top: 6vw;
-                left: 11vw;
+                left: -1vw;
             }
             .masks .hunter
+            {
+                width: 6vw;
+                height: 7vw;
+                top: 13vw;
+                left: 17.5vw;
+            }
+            .masks .hunter::after
             {
                 background-image: url("img/mask_hunter.png");
                 width: 9vw;
                 height: 11vw;
-                top: 11vw;
-                left: 15.5vw;
                 transform: scaleX(-1);
+                top: -2vw;
+                left: -2vw;
             }
             .masks .halfmask
             {
-                background-image: url("img/mask_halfmask.png");
-                width: 9vw;
-                height: 9vw;
+                width: 6vw;
+                height: 7vw;
                 top: 17.5vw;
-                left: 10.6vw;
+                left: 11.6vw;
+            }
+            .masks .halfmask::after
+            {
+                background-image: url("img/mask_halfmask.png");
+                width: 8vw;
+                height: 9vw;
+                top: -1vw;
+                left: 0vw;
             }
             .masks .emoji
+            {
+                width: 5vw;
+                height: 9vw;
+                top: 22vw;
+                left: 16.5vw;
+            }
+            .masks .emoji::after
             {
                 background-image: url("img/mask_emoji.png");
                 width: 6vw;
                 height: 9vw;
-                top: 22vw;
-                left: 16.5vw;
                 transform: scaleX(-1);
             }
             .masks .skull
@@ -915,11 +953,16 @@
             }
             .masks .lucky
             {
+                width: 6vw;
+                height: 8vw;
+                top: 34vw;
+                left: 16vw;
+            }
+            .masks .lucky::after
+            {
                 background-image: url("img/mask_lucky.png");
                 width: 8vw;
                 height: 9.5vw;
-                top: 33vw;
-                left: 16vw;
                 transform: scaleX(-1);
             }
 
@@ -934,45 +977,77 @@
             }
             .masks .clown
             {
-                background-image: url("img/mask_clown.png");
-                width: 8vw;
+                width: 6vw;
                 height: 10vw;
                 top: 12vw;
-                left: 76vw;
+                left: 76.7vw;
+            }
+            .masks .clown::after
+            {
+                background-image: url("img/mask_clown.png");
+                width: 7.5vw;
+                height: 10vw;
+                top: 0vw;
+                left: -0.5vw;
             }
             .masks .animal
+            {
+                width: 6vw;
+                height: 10vw;
+                top: 17vw;
+                left: 82vw;
+            }
+            .masks .animal::after
             {
                 background-image: url("img/mask_animal.png");
                 width: 7vw;
                 height: 10vw;
-                top: 17vw;
-                left: 81vw;
+                left: -1vw;
                 transform: scaleX(-1);
             }
             .masks .riot
             {
+                width: 5.5vw;
+                height: 10vw;
+                top: 22vw;
+                left: 76.5vw;
+            }
+            .masks .riot::after
+            {
                 background-image: url("img/mask_riot.png");
                 width: 7.5vw;
                 height: 10vw;
-                top: 22vw;
-                left: 76vw;
+                left: -0.5vw;
             }
             .masks .oni
             {
-                background-image: url("img/mask_oni.png");
-                width: 8.5vw;
-                height: 11.5vw;
+                width: 7.5vw;
+                height: 9.5vw;
                 top: 27vw;
-                left: 80.5vw;
+                left: 81vw;
+            }
+            .masks .oni::after
+            {
+                background-image: url("img/mask_oni.png");
+                width: 9vw;
+                height: 12vw;
+                top: -0.5vw;
+                left: -0.5vw;
                 transform: scaleX(-1);
             }
             .masks .hockey
             {
+                width: 6vw;
+                height: 10vw;
+                top: 33.5vw;
+                left: 78vw;
+            }
+            .masks .hockey::after
+            {
                 background-image: url("img/mask_hockey.png");
                 width: 7vw;
                 height: 10vw;
-                top: 33.5vw;
-                left: 77vw;
+                left: -1vw;
             }
 
             .masks[mask="geometric"] > .geometric, .masks[mask="hunter"] > .hunter,
@@ -1137,49 +1212,6 @@
                     <div class="tick hidden"></div>
                 </div>
             </div>
-            <div class="specifics">
-                <div class="label"></div>
-                <div class="mandatory">
-                    <div class="first">
-                        <div class="tick hidden"></div>
-                        <div class="left"></div>
-                        <div class="right"></div>
-                    </div>
-                    <div class="second"><div class="tick hidden"></div></div>
-                </div>
-                <div class="optional">
-                    <div class="first">
-                        <div class="tick hidden"></div>
-                        <div class="tick hidden"></div>
-                    </div>
-                    <div class="second">
-                        <div class="tick hidden"></div>
-                        <div class="left"></div>
-                        <div class="right"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="masks">
-                <div class="hockey"></div>
-                <div class="oni"></div>
-                <div class="riot"></div>
-                <div class="animal"></div>
-                <div class="clown"></div>
-                <div class="guerilla"></div>
-                <div class="lucky"></div>
-                <div class="skull"></div>
-                <div class="emoji"></div>
-                <div class="halfmask"></div>
-                <div class="hunter"></div>
-                <div class="geometric"></div>
-            </div>
-
-            <!-- security and crew must be rendered later than masks, therefore above it  -->
-            <div class="security level1">
-                <div class="left"></div>
-                <div class="right"></div>
-            </div>
 
             <div class="crew">
                 <div class="label"></div>
@@ -1213,6 +1245,52 @@
                     <div class="lester_the_molester"><div class="tick hidden"></div></div>
                 </div>
             </div>
+
+            <div class="specifics">
+                <div class="label"></div>
+                <div class="mandatory">
+                    <div class="first">
+                        <div class="tick hidden"></div>
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
+                    <div class="second"><div class="tick hidden"></div></div>
+                </div>
+                <div class="optional">
+                    <div class="first">
+                        <div class="tick hidden"></div>
+                        <div class="tick hidden"></div>
+                    </div>
+                    <div class="second">
+                        <div class="tick hidden"></div>
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="security level1">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+
+            <div class="masks">
+                <div class="hockey"></div>
+                <div class="oni"></div>
+                <div class="riot"></div>
+                <div class="animal"></div>
+                <div class="clown"></div>
+                <div class="guerilla"></div>
+                <div class="lucky"></div>
+                <div class="skull"></div>
+                <div class="emoji"></div>
+                <div class="halfmask"></div>
+                <div class="hunter"></div>
+                <div class="geometric"></div>
+            </div>
+
+
+
 
             <div class="stattextContainer">
                 <div id="stattextLabel">stat.txt:</div>
