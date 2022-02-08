@@ -2144,22 +2144,57 @@
     function buildStat()
     {
         let stat = ["INT32"];
+
+        /* $MPx_H3OPT_APPROACH
+            1 - stealth
+            2 - bigcon
+            3 - aggressive
+        */
         stat.push("$MPx_H3OPT_APPROACH");
         let approachIndex = casino.approach.indexOf(settings.approach) + 1;
         stat.push(approachIndex)
 
         if (settings.hard)
         {
+            /* $MPx_H3_HARD_APPROACH
+                1 - stealth
+                2 - bigcon
+                3 - aggressive
+            */
             stat.push("$MPx_H3_HARD_APPROACH");
             stat.push(casino.approach.indexOf(settings.hard) + 1)
         }
 
+        /* $MPx_H3_LAST_APPROACH
+            1 - stealth
+            2 - bigcon
+            3 - aggressive
+        */
         stat.push("$MPx_H3_LAST_APPROACH");
         stat.push(approachIndex == 3 ? Math.floor(Math.random() * 2) + 1 : 3);
 
-        stat.push("$MPx_H3OPT_TARGET");
+        /* $MPx_H3_LAST_APPROACH
+            0 - cash
+            1 - gold
+            2 - art
+            3 - diamonds
+        */
+        stat.push("$MPx_H3OPT_BITSET1");
         stat.push(casino.target.indexOf(settings.target));
 
+        /* $MPx_H3_LAST_APPROACH
+            internal casino preps and tools
+            left shift bit 0 / value 1: scope vault
+            bit 1 / value 2: keycards mission completed (? i think ?)
+            bit 2 / value 4: weapon mission completed
+            bit 3 / value 8: weapon mission completed
+            bit 4 / value 16: hacking device mission completed
+            bit 5 / value 32: drone - stealth specific
+            bit 6 / value 64: laser - stealth specific
+            bit 7 / value 128: drill - bigcon specific
+            bit 8 / value 256: explosives - aggressive specific
+            bit 9 / value 512: thermal charges - aggressive specific
+        */
         stat.push("$MPx_H3OPT_BITSET1");
         let internal = 1 + 2; //vault contents(bit 0) + keys(bit 1)
         if (settings.weapon.weapon)
@@ -2188,12 +2223,24 @@
 
         stat.push(internal);
 
+        /*
+            $MPx_H3OPT_DISRUPTSHIP
+            1 - level 1
+            2 - level 2
+            3 - level 3
+        */
         if (settings.shipment)
         {
             stat.push("$MPx_H3OPT_DISRUPTSHIP");
             stat.push("3"); //full power
         }
 
+        /*
+            $MPx_H3OPT_KEYLEVELS
+            keycards
+            1 - level 1
+            2 - level 2
+        */
         if (settings.security)
         {
             stat.push("$MPx_H3OPT_KEYLEVELS");
@@ -2203,22 +2250,73 @@
                 stat.push("2");
         }
 
+        /*
+            $MPx_H3OPT_CREWWEAP
+            0 not selected
+            1 karl
+            2 charlie
+            3 patrick
+            4 gustavo
+            5 chester
+        */
         stat.push("$MPx_H3OPT_CREWWEAP");
         stat.push(casino.gunman.data.indexOf(settings.gunman) + 1);
 
+        /*
+            $MPx_H3OPT_CREWDRIVER
+            0 not selected
+            1 karim
+            2 zach
+            3 taliana
+            4 eddie
+            5 chester
+        */
         stat.push("$MPx_H3OPT_CREWDRIVER");
         stat.push(casino.driver.data.indexOf(settings.driver) + 1);
 
+        /*
+            $MPx_H3OPT_CREWHACKER
+            0 not selected
+            1 rickie
+            2 yochan
+            3 christian
+            4 paige
+            5 avi
+        */
         stat.push("$MPx_H3OPT_CREWHACKER");
         stat.push(casino.hacker.data.indexOf(settings.hacker) + 1);
 
+        /*
+            $MPx_H3OPT_VEHS 0-3
+            $MPx_H3OPT_WEAPS 0, 1
+            consult weapons and vehicles here: https://gta.fandom.com/wiki/The_Diamond_Casino_Heist/Preparations#List_of_the_Optional_Crew_Members
+            they are listed in order
+        */
         stat.push("$MPx_H3OPT_VEHS");
         stat.push(casino.vehicle.indexOf(settings.vehicle.vehicle));
 
         stat.push("$MPx_H3OPT_WEAPS");
         stat.push(settings.weapon.weapon == "first" ? "0" : "1");
 
-
+        /*
+            left shift bit 0/ value 1: support crew selected
+            bit 1/ value 2: patrol routes
+            bit 2/ value 4: duggan shipments
+            bit 3/ value 8: infiltration suits - stealth specific
+            bit 4/ value 16: power drills
+            bit 5/ value 32: emp - stealth specific
+            bit 6/ value 64: decoy
+            bit 7/ value 128: clean vehicle
+            bit 8,9/ value 512+768: bugstars disguise - bigcon specific(2 preps)
+            bit 10,11/ value 1024+2048: maintenance disguise - bigcon specific(2 preps)
+            bit 12,13/ value 4096+8192: gruppe sechs disguise - bigcon specific(2 preps)
+            bit 14,15/ value 16384+32768: yung ancestor disguise - bigcon specific(2 preps)
+            bit 16/ value 65536: noose exit disguise
+            bit 17/ value 131072: firefighter exit disguise
+            bit 18/ value 262144: highroller exit disguise (? i dont know ?)
+            bit 19/ value 524288: boring machine - aggressive specific
+            bit 20/ value 1048576: reinforced armor - aggressive specific
+        */
         stat.push("$MPx_H3OPT_BITSET0");
         let external = 1; //support crew selected
         if (settings.routes)
@@ -2273,6 +2371,21 @@
 
         if(settings.mask)
         {
+            /*
+                $MPx_H3OPT_MASKS
+            1  - geometric
+            2  - hunter
+            3  - halfmask
+            4  - emoji
+            5  - skull
+            6  - fruit
+            7  - guirilla
+            8  - clown
+            9  - animal
+            10 - riot
+            11 - oni
+            12 - hockey
+            */
             stat.push("$MPx_H3OPT_MASKS");
             stat.push(casino.masks.indexOf(settings.mask) + 1);
         }
