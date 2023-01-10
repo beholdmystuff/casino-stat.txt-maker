@@ -850,6 +850,10 @@
                 background-size: 120%;
                 content: " ";
             }
+            .security.level0
+            {
+                background-image: url("img/blank.png");
+            }
             .security.level1
             {
                 background-image: url("img/security_level1.png");
@@ -1094,6 +1098,7 @@
                 width: 100vw;
                 height: 100vh;
                 cursor: url(img/cursor.png) 10 2,pointer;
+                display: none;
             }
             .overlay
             {
@@ -2123,21 +2128,40 @@
     */
     document.querySelectorAll(".security .left, .security .right").forEach((element) =>
     {
+        const order = ["level0", "level1", "level2"]
         element.addEventListener("click", (event) =>
         {
-            let parent = event.target.parentNode;
-            let security = parent.classList[1];
-            if (security == "level1")
+            const parent = event.target.parentNode;
+            const security = parent.classList[1];
+            let securityIndex = order.indexOf(security)
+            let newSecurityIndex;
+
+            console.log("prev index:", securityIndex)
+            const direction = event.target.classList[0]
+            if (securityIndex == -1)
+                return;
+
+            //WARNING: lazy copy paste job
+            console.log(direction)
+            if (direction == "left")
             {
-                parent.classList.remove("level1");
-                parent.classList.add("level2");
+                if (securityIndex <= 0)
+                    newSecurityIndex = order.length - 1
+                else
+                    newSecurityIndex = securityIndex - 1;
             }
             else
             {
-                parent.classList.remove("level2");
-                parent.classList.add("level1");
+                if (securityIndex >= order.length -1 )
+                    newSecurityIndex = 0
+                else
+                    newSecurityIndex = securityIndex + 1;
             }
-            settings.security = parent.classList[1];
+            console.log("current index:", newSecurityIndex)
+
+
+            parent.className = "security level" + newSecurityIndex
+            settings.security = "level" + newSecurityIndex
         });
     });
 
@@ -2183,7 +2207,7 @@
         stat.push(casino.target.indexOf(settings.target));
 
         /* $MPx_H3OPT_BITSET1
-            internal casino preps and tools
+            internal(???) casino preps and tools
             left shift bit 0 / value 1: scope vault
             bit 1 / value 2: keycards mission completed (? i think ?)
             bit 2 / value 4: weapon mission completed
@@ -2195,8 +2219,14 @@
             bit 8 / value 256: explosives - aggressive specific
             bit 9 / value 512: thermal charges - aggressive specific
         */
+
+
+        let internal = 1; //vault contents(bit 0)
+
         stat.push("$MPx_H3OPT_BITSET1");
-        let internal = 1 + 2; //vault contents(bit 0) + keys(bit 1)
+        if (settings.security != "level0")
+            internal += 1 << 1;
+
         if (settings.weapon.weapon)
             internal += 1 << 2;
 
@@ -2223,6 +2253,26 @@
 
         stat.push(internal);
 
+        
+        /*
+            $MPx_H3OPT_KEYLEVELS
+            keycards
+            1 - level 1
+            2 - level 2
+        */
+        if (settings.security)
+        {
+            if (settings.security != "level0")
+            {
+                stat.push("$MPx_H3OPT_KEYLEVELS");
+                if (settings.security == "level1")
+                    stat.push("1");
+                else
+                    stat.push("2");
+            }
+        }
+
+
         /*
             $MPx_H3OPT_DISRUPTSHIP
             1 - level 1
@@ -2233,21 +2283,6 @@
         {
             stat.push("$MPx_H3OPT_DISRUPTSHIP");
             stat.push("3"); //full power
-        }
-
-        /*
-            $MPx_H3OPT_KEYLEVELS
-            keycards
-            1 - level 1
-            2 - level 2
-        */
-        if (settings.security)
-        {
-            stat.push("$MPx_H3OPT_KEYLEVELS");
-            if (settings.security == "level1")
-                stat.push("1");
-            else
-                stat.push("2");
         }
 
         /*
